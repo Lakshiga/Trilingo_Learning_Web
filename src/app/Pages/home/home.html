@@ -1,0 +1,72 @@
+<!-- 🌟 Hero Section -->
+<section class="relative flex flex-col md:flex-row items-center justify-between px-8 md:px-20 pt-8 pb-16 bg-white overflow-hidden">
+  <!-- Left Text -->
+  <div class="text-center md:text-left max-w-xl space-y-4 z-10">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-[#5B9EEA]">
+      {{ 'HOME.HERO.TITLE' | translate }}
+    </h1>
+    <p class="text-gray-700 text-lg md:text-xl font-medium leading-relaxed">
+      {{ 'HOME.HERO.SUBTITLE' | translate }}
+    </p>
+    <div class="mt-8 flex justify-center md:justify-start space-x-4">
+      <button class="bg-[#5B9EEA] text-white font-bold px-6 py-3 rounded-full shadow-md hover:bg-[#4a8cd6] transition duration-300">
+        {{ 'HOME.HERO.DOWNLOAD_APP' | translate }}
+      </button>
+      <button class="bg-[#FF6B6B] text-white font-bold px-6 py-3 rounded-full shadow-md hover:bg-[#ff4757] transition duration-300">
+        {{ 'HOME.HERO.LEARN_MORE' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Right Image -->
+  <div class="relative w-full md:w-1/2 flex justify-center mt-10 md:mt-0">
+    <img src="/hero-cat.png" alt="Trilingo Cat" class="w-80 md:w-[420px] drop-shadow-2xl animate-bounce-slow">
+  </div>
+
+  <!-- Floating Shapes -->
+  <div class="absolute top-10 left-10 w-10 h-10 bg-[#5B9EEA]/20 rounded-full blur-xl animate-pulse"></div>
+  <div class="absolute bottom-10 right-20 w-16 h-16 bg-[#FF6B6B]/20 rounded-full blur-xl animate-ping"></div>
+</section>
+
+
+
+<!-- 🧠 Features Section -->
+<section class="py-20 bg-white text-center">
+  <h2 class="text-4xl font-bold text-[#5B9EEA] mb-10">{{ 'HOME.FEATURES.TITLE' | translate }}</h2>
+
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-10 px-8 md:px-20">
+    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition">
+      <img src="/cat-study.png" alt="Cat Studying" class="w-44 mx-auto mb-6 drop-shadow-xl">
+      <h3 class="text-2xl font-semibold text-[#5B9EEA]">{{ 'HOME.FEATURES.PLAY_LEARN.TITLE' | translate }}</h3>
+      <p class="text-gray-600 mt-2">{{ 'HOME.FEATURES.PLAY_LEARN.DESCRIPTION' | translate }}</p>
+    </div>
+
+    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition">
+      <img src="/cat-mascot.png" alt="Cat Mascot" class="w-44 mx-auto mb-6 drop-shadow-xl">
+      <h3 class="text-2xl font-semibold text-[#FF6B6B]">{{ 'HOME.FEATURES.FRIENDLY_MASCOT.TITLE' | translate }}</h3>
+      <p class="text-gray-600 mt-2">{{ 'HOME.FEATURES.FRIENDLY_MASCOT.DESCRIPTION' | translate }}</p>
+    </div>
+
+    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition">
+      <img src="/cat-nature.png" alt="Cat Reading" class="w-44 mx-auto mb-6 drop-shadow-xl">
+      <h3 class="text-2xl font-semibold text-[#2ED573]">{{ 'HOME.FEATURES.PEACEFUL_LEARNING.TITLE' | translate }}</h3>
+      <p class="text-gray-600 mt-2">{{ 'HOME.FEATURES.PEACEFUL_LEARNING.DESCRIPTION' | translate }}</p>
+    </div>
+  </div>
+</section>
+
+<!-- 🌈 Bottom Call-to-Action -->
+<section class="py-20 bg-white text-center border-t border-gray-100">
+  <h2 class="text-4xl font-extrabold text-[#5B9EEA] mb-6">{{ 'HOME.CTA.TITLE' | translate }}</h2>
+  <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
+    {{ 'HOME.CTA.DESCRIPTION' | translate }}
+  </p>
+  <div class="flex justify-center space-x-6">
+    <button class="bg-[#5B9EEA] text-white px-8 py-3 font-bold rounded-full shadow-md hover:bg-[#4a8cd6] transition">
+      {{ 'HOME.CTA.PLAY_STORE' | translate }}
+    </button>
+    <button class="bg-[#FF6B6B] text-white px-8 py-3 font-bold rounded-full shadow-md hover:bg-[#ff4757] transition">
+      {{ 'HOME.CTA.APP_STORE' | translate }}
+    </button>
+  </div>
+</section>

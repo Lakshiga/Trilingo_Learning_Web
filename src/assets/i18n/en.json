@@ -1,0 +1,130 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "FEATURES": "Features",
+    "GAMES": "Games",
+    "START_LEARNING": "Try Now",
+    "LANGUAGE": "Language"
+  },
+  "HOME": {
+    "HERO": {
+      "TITLE": "Learn With Trilingo 🐾",
+      "SUBTITLE": "Discover a fun way to learn new languages through cute cat characters, colorful games, and smart lessons designed for kids!",
+      "DOWNLOAD_APP": "Download App",
+      "LEARN_MORE": "Learn More"
+    },
+    "FEATURES": {
+      "TITLE": "Why Kids Love Trilingo 🐱",
+      "PLAY_LEARN": {
+        "TITLE": "Play & Learn",
+        "DESCRIPTION": "Interactive mini-games make every lesson exciting and easy to remember!"
+      },
+      "FRIENDLY_MASCOT": {
+        "TITLE": "Friendly Mascot",
+        "DESCRIPTION": "Trilingo the Cat guides kids with love and encouragement at every step!"
+      },
+      "PEACEFUL_LEARNING": {
+        "TITLE": "Peaceful Learning",
+        "DESCRIPTION": "A calm, distraction-free environment keeps kids focused and happy."
+      }
+    },
+    "CTA": {
+      "TITLE": "Download Trilingo App 📱",
+      "DESCRIPTION": "Start learning Tamil, Sinhala, and English with our interactive lessons and fun games. Available for Android and iOS!",
+      "PLAY_STORE": "Get it on Play Store",
+      "APP_STORE": "Download on App Store"
+    }
+  },
+  "FEATURES": {
+    "AI_TUTOR": {
+      "TITLE": "Chat with Our AI Cat Tutor 🐱",
+      "DESCRIPTION": "Meet Trilingo — your friendly AI cat who loves conversations! Practice speaking naturally, get instant feedback, and improve pronunciation while having a fun chat every day."
+    },
+    "LEARNING_GAMES": {
+      "TITLE": "Learn Through Play 🎮",
+      "DESCRIPTION": "Explore interactive mini-games, puzzles, and matching cards that make every lesson exciting. You'll be learning new words and phrases — without even realizing it!"
+    },
+    "PROGRESS_REWARDS": {
+      "TITLE": "Grow, Earn & Celebrate 🏅",
+      "DESCRIPTION": "Each lesson earns you stars, trophies, and surprise gifts. Watch your cat friend level up and unlock new adventures as you progress!"
+    },
+    "MULTILINGUAL": {
+      "TITLE": "Explore a World of Languages 🌍",
+      "DESCRIPTION": "Switch easily between Tamil, English, and Sinhala lessons. Learn side-by-side with comparisons, examples, and fun visual activities."
+    }
+  },
+  "GAMES": {
+    "VOCABULARY": {
+      "TITLE": "Word Match & Balloon Pop 🔤",
+      "DESCRIPTION": "Remember new words through mini-games! Match cards or pop balloons with the correct words — fun learning guaranteed."
+    },
+    "LISTENING_SPEAKING": {
+      "TITLE": "Voice Repeat & Sound Match 🎤",
+      "DESCRIPTION": "Speak and listen with fun feedback! Improve pronunciation while having a blast with interactive sound games."
+    },
+    "GRAMMAR": {
+      "TITLE": "Fill-in-the-Blanks & Sentence Builder ✏️",
+      "DESCRIPTION": "Learn grammar naturally! Arrange words or complete sentences with guidance from Trilingo the Cat."
+    },
+    "MEMORY_PUZZLE": {
+      "TITLE": "Memory Pair & Word Puzzle 🧩",
+      "DESCRIPTION": "Strengthen your memory and reinforce concepts with puzzles, matching pairs, and word challenges — playful and effective!"
+    }
+  },
+  "FOOTER": {
+    "BRAND_DESCRIPTION": "Learn Tamil, English & Sinhala in a fun, cat-inspired world! Play, explore, and grow with Trilingo 🐾.",
+    "QUICK_LINKS": "Quick Links",
+    "SUPPORT": "Support",
+    "GET_THE_APP": "Get the App",
+    "COPYRIGHT": "All Rights Reserved"
+  },
+  "PRE_APP": {
+    "TITLE": "Trilingo",
+    "SUBTITLE": "Try our interactive learning games!",
+    "GAMES": {
+      "WORD_EXPLORER": {
+        "TITLE": "Word Explorer",
+        "DESCRIPTION": "Listen, repeat, and learn new words!",
+        "LEVEL": "Level",
+        "PLAY": "Play",
+        "SPEAK": "Speak",
+        "LISTENING": "Listening...",
+        "START": "Start Word Explorer",
+        "GREAT_JOB": "Great job!",
+        "TRY_AGAIN": "Try again!"
+      },
+      "COLOR_MATCH": {
+        "TITLE": "Color Match Adventure",
+        "DESCRIPTION": "Match colors with the correct words!",
+        "FIND": "Find:",
+        "CLICK_START": "Click Start!",
+        "SCORE": "Score:",
+        "START": "Start Color Match"
+      }
+    },
+    "ACTIVITIES": {
+      "TITLE": "Learning Activities",
+      "PRONUNCIATION": {
+        "TITLE": "Word Pronunciation",
+        "DESCRIPTION": "Listen and pronounce words correctly!",
+        "PRACTICE_MODE": "Practice Mode",
+        "PERFECT_PRONUNCIATION": "Perfect your pronunciation",
+        "LISTEN": "Listen",
+        "RECORD": "Record",
+        "START": "Start Pronunciation Practice"
+      },
+      "PICTURE_MATCH": {
+        "TITLE": "Picture-Word Match",
+        "DESCRIPTION": "Match pictures with correct words!",
+        "SCORE": "Score:",
+        "START": "Start Picture Match"
+      }
+    },
+    "CTA": {
+      "TITLE": "Ready for more?",
+      "DESCRIPTION": "Download the full Trilingo app for unlimited learning!",
+      "DOWNLOAD": "Download App"
+    }
+  }
+}
+

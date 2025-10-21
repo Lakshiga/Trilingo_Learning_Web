@@ -1,0 +1,52 @@
+<!-- 🐾 Trilingo Footer -->
+<footer class="bg-[#1E293B] text-white mt-20">
+  <div class="max-w-7xl mx-auto py-14 px-6 grid grid-cols-1 md:grid-cols-4 gap-10">
+
+    <!-- 🌟 Brand Info -->
+    <div>
+      <h4 class="text-2xl font-extrabold text-[#5B9EEA] mb-3">Trilingo</h4>
+      <p class="text-gray-400 text-sm leading-relaxed">
+        {{ 'FOOTER.BRAND_DESCRIPTION' | translate }}
+      </p>
+    </div>
+
+    <!-- 🌍 Quick Links -->
+    <div>
+      <h4 class="text-lg font-bold mb-3 text-[#FF6B6B]">{{ 'FOOTER.QUICK_LINKS' | translate }}</h4>
+      <ul class="space-y-2 text-gray-300">
+        <li><a href="#" class="hover:text-white transition">{{ 'NAV.HOME' | translate }}</a></li>
+        <li><a href="#" class="hover:text-white transition">{{ 'NAV.FEATURES' | translate }}</a></li>
+        <li><a href="#" class="hover:text-white transition">{{ 'NAV.GAMES' | translate }}</a></li>
+      </ul>
+    </div>
+
+    <!-- 💬 Support -->
+    <div>
+      <h4 class="text-lg font-bold mb-3 text-[#2ED573]">{{ 'FOOTER.SUPPORT' | translate }}</h4>
+      <ul class="space-y-2 text-gray-300">
+        <li><a href="#" class="hover:text-white transition">Help Center</a></li>
+        <li><a href="#" class="hover:text-white transition">Contact Us</a></li>
+        <li><a href="#" class="hover:text-white transition">FAQs</a></li>
+      </ul>
+    </div>
+
+    <!-- 📱 App Download -->
+    <div>
+      <h4 class="text-lg font-bold mb-3 text-[#5B9EEA]">{{ 'FOOTER.GET_THE_APP' | translate }}</h4>
+      <div class="flex flex-col space-y-3">
+        <a href="#">
+          <img src="/playstore.png" alt="Play Store" class="h-12 w-auto hover:scale-105 transition">
+        </a>
+        <a href="#">
+          <img src="/appstore.png" alt="App Store" class="h-14 w-auto hover:scale-105 transition">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ⚙️ Bottom -->
+  <div class="border-t border-gray-700 text-center py-5 text-sm text-gray-400">
+    © 2025 <span class="font-semibold text-[#5B9EEA]">Trilingo</span>. {{ 'FOOTER.COPYRIGHT' | translate }}.
+  </div>
+</footer>

@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+/* Global dark mode overrides driven by root .dark class */
+.dark body {
+  background-color: #0f172a; /* slate-900 */
+  color: #e5e7eb; /* gray-200 */
+}
+
+/* Containers and cards */
+.dark .bg-white { background-color: #1f2937 !important; } /* gray-800 */
+.dark .text-gray-700 { color: #d1d5db !important; }
+.dark .text-gray-600 { color: #cbd5e1 !important; }
+.dark .border-gray-100 { border-color: #334155 !important; }
+.dark .border-gray-200 { border-color: #475569 !important; }
+
+/* Buttons using project blue should keep contrast */
+.dark .bg-\[\#5B9EEA\] { color: #0b1220; }
+
+/* Navbar background tweak in dark */
+.dark nav.bg-\[\#5B9EEA\] { background-color: #0b4ea9 !important; }
+
+/* Images not inverted */
+.dark img { filter: none; }

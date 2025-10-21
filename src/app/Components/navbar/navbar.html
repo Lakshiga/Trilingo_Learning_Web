@@ -1,0 +1,145 @@
+<nav class="fixed top-0 left-0 w-full bg-[#5B9EEA] shadow-md z-50">
+  <div class="max-w-7xl mx-auto flex justify-between items-center h-16 px-6">
+    
+    <!-- Logo + Name -->
+    <div class="flex items-center space-x-2">
+      <img src="/logo.png" alt="Trilingo Logo" class="h-20 w-auto object-contain">
+      <span class="text-2xl font-extrabold text-white hidden md:inline-block animate-pulse">
+        Trilingo
+      </span>
+    </div>
+
+    <!-- Desktop Menu -->
+    <div class="hidden md:flex space-x-8 font-semibold">
+      <a 
+        routerLink="/" 
+        routerLinkActive="text-white border-b-2 border-white" 
+        [routerLinkActiveOptions]="{ exact: true }"
+        class="text-white hover:text-gray-100"
+      >
+        {{ 'NAV.HOME' | translate }}
+      </a>
+      <a 
+        routerLink="/features" 
+        routerLinkActive="text-white border-b-2 border-white" 
+        class="text-white hover:text-gray-100"
+      >
+        {{ 'NAV.FEATURES' | translate }}
+      </a>
+      <a 
+        routerLink="/games" 
+        routerLinkActive="text-white border-b-2 border-white" 
+        class="text-white hover:text-gray-100"
+      >
+        {{ 'NAV.GAMES' | translate }}
+      </a>
+    </div>
+
+    <!-- Right Section: Language Selector + CTA -->
+    <div class="hidden md:flex items-center space-x-4">
+      
+      <!-- 🌐 Language Selector -->
+      <div class="relative group" 
+           (mouseenter)="showLanguageMenu()" 
+           (mouseleave)="hideLanguageMenu()">
+        <button class="flex items-center justify-between bg-white text-[#5B9EEA] px-4 py-2 rounded-full font-semibold shadow-md transition-all duration-300 ease-in-out hover:bg-gray-50 hover:shadow-xl hover:scale-105 active:scale-95 min-w-[120px] max-w-[140px]">
+          <div class="flex items-center">
+            <span class="text-lg mr-2">🌐</span>
+            <span class="truncate text-sm">{{ selectedLanguage }}</span>
+          </div>
+          <svg class="w-4 h-4 transition-transform duration-300 ease-in-out group-hover:rotate-180 flex-shrink-0" 
+               fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M19 9l-7 7-7-7" />
+          </svg>
+        </button>
+
+        <!-- Dropdown -->
+        <div *ngIf="isLangMenuOpen" 
+             (mouseenter)="keepLanguageMenuOpen()"
+             (mouseleave)="hideLanguageMenu()"
+             class="absolute right-0 mt-3 w-52 bg-white rounded-xl shadow-2xl border border-gray-200 overflow-hidden z-50 transform transition-all duration-300 ease-in-out opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0"
+             [class.opacity-100]="isLangMenuOpen"
+             [class.translate-y-0]="isLangMenuOpen">
+          <div class="py-3">
+            <button *ngFor="let lang of languages; let i = index" 
+                    (click)="setLanguage(lang.code)" 
+                    class="block w-full text-left px-4 py-4 text-gray-700 hover:bg-gradient-to-r hover:from-[#5B9EEA] hover:to-[#4A8DDB] hover:text-white transition-all duration-200 ease-in-out hover:translate-x-1 hover:shadow-md border-b border-gray-100 last:border-b-0"
+                    [class.bg-gradient-to-r]="lang.displayName === selectedLanguage"
+                    [class.from-[#5B9EEA]]="lang.displayName === selectedLanguage"
+                    [class.to-[#4A8DDB]]="lang.displayName === selectedLanguage"
+                    [class.text-white]="lang.displayName === selectedLanguage">
+              <span class="flex items-center">
+                <span class="text-lg mr-3">🌐</span>
+                <span class="font-medium">{{ lang.displayName }}</span>
+                <svg *ngIf="lang.displayName === selectedLanguage" class="w-4 h-4 ml-auto text-white" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path>
+                </svg>
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark/Light Toggle -->
+      <button (click)="toggleTheme()" class="ml-2 flex items-center gap-2 px-3 py-2 rounded-full bg-white text-[#5B9EEA] font-semibold shadow hover:bg-gray-100 transition">
+        <span *ngIf="!isDarkMode">🌙</span>
+        <span *ngIf="isDarkMode">☀️</span>
+        <span class="text-sm">{{ isDarkMode ? 'Light' : 'Dark' }}</span>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Button -->
+    <button class="md:hidden" (click)="toggleMenu()">
+      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path *ngIf="!isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+        <path *ngIf="isMenuOpen" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Side Drawer + Overlay -->
+  <div *ngIf="isMenuOpen">
+    <!-- Overlay (neutral dark) -->
+    <div class="fixed inset-0 bg-transparent bg-opacity-40 md:hidden" (click)="toggleMenu()"></div>
+    <!-- Drawer (blue background) -->
+    <aside class="fixed top-0 right-0 h-full w-72 max-w-[80vw] bg-[#5B9EEA] text-white shadow-2xl md:hidden transform transition-transform duration-300 ease-out translate-x-0 z-50">
+  
+      <!-- Header with Logo and Close Button -->
+      <div class="p-4 flex items-center justify-between border-b border-white/20">
+        <div class="flex items-center space-x-2">
+          <img src="/logo.png" alt="Trilingo Logo" class="h-10 w-auto object-contain">
+          <span class="text-lg font-extrabold text-white">Trilingo</span>
+        </div>
+        <button (click)="toggleMenu()" aria-label="Close menu">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <!-- Navigation Links -->
+      <nav class="p-4 space-y-2">
+        <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.HOME' | translate }}</a>
+        <a routerLink="/features" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.FEATURES' | translate }}</a>
+        <a routerLink="/games" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.GAMES' | translate }}</a>
+      </nav>
+      
+      <!-- Language Selector -->
+      <div class="p-4 border-t border-white/20">
+        <button (click)="toggleTheme()" class="w-full mb-4 flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/15 text-white font-semibold hover:bg-white/20">
+          <span *ngIf="!isDarkMode">🌙</span>
+          <span *ngIf="isDarkMode">☀️</span>
+          <span>{{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}</span>
+        </button>
+        <label class="block text-sm font-semibold text-white mb-2">{{ 'NAV.LANGUAGE' | translate }}</label>
+        <select (change)="onLanguageSelect($event)" class="w-full px-3 py-2 rounded-lg bg-white text-[#5B9EEA] font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-white">
+          <option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.displayName === selectedLanguage">{{ lang.displayName }}</option>
+        </select>
+      </div>
+    
+    </aside>
+  </div>
+</nav>

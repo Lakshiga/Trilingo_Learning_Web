@@ -1,0 +1,112 @@
+<!-- "Back to Games" link with a light theme style -->
+<div class="p-4 bg-white">
+  <a routerLink="/games"
+     class="inline-block bg-blue-500 text-white px-4 py-2 rounded-full shadow hover:bg-blue-600 hover:shadow-md transition">
+     ← Back to Games
+  </a>
+</div>
+
+<!-- Main container with a clean, light gradient background -->
+<main class="min-h-screen bg-gradient-to-br bg-white text-slate-800 flex flex-col items-center p-4 sm:p-6 lg:p-8">
+  <div class="w-full max-w-5xl mx-auto">
+
+    <!-- Header -->
+    <header class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
+      <h1 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
+        Word Memory Puzzle
+      </h1>
+      <button (click)="restartGame()" class="px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg font-semibold shadow-lg">
+        Restart
+      </button>
+    </header>
+
+    <!-- Stats -->
+    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 p-4 bg-white rounded-lg shadow-md border">
+      <div class="text-center">
+        <div class="text-sm text-gray-500">SCORE</div>
+        <div class="text-3xl font-bold text-blue-500">{{ score() }}</div>
+      </div>
+      <div class="text-center">
+        <div class="text-sm text-gray-500">HIGH</div>
+        <div class="text-3xl font-bold text-slate-600">{{ highScore() }}</div>
+      </div>
+      <div class="text-center">
+        <div class="text-sm text-gray-500">COMBO</div>
+        <div class="text-3xl font-bold text-indigo-500">{{ combo() }}x</div>
+      </div>
+      <div class="text-center">
+        <div class="text-sm text-gray-500">TIME</div>
+        <div class="text-3xl font-bold" [class.text-red-500]="timer() <= 10">{{ timer() }}</div>
+      </div>
+    </div>
+
+    <!-- Game Board -->
+    <div class="relative">
+      <!-- Game Over -->
+      @if (isGameOver()) {
+        <div class="absolute inset-0 bg-white/90 backdrop-blur-sm flex flex-col justify-center items-center z-20 rounded-lg">
+          <h2 class="text-5xl font-extrabold mb-4">
+            @if (allCardsMatched()) {
+              <span class="text-green-500">You Win!</span>
+            } @else {
+              <span class="text-red-500">Time’s Up!</span>
+            }
+          </h2>
+          <p class="text-2xl text-slate-700 mb-6">Final Score: {{ score() }}</p>
+          <button (click)="restartGame()" class="px-8 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg text-lg font-bold shadow-xl">
+            Play Again
+          </button>
+        </div>
+      }
+
+      <!-- Power Message -->
+      @if (powerMatchMessage(); as message) {
+        <div class="absolute inset-0 flex justify-center items-center z-30 pointer-events-none">
+          <div class="text-5xl font-extrabold text-yellow-400 drop-shadow-[0_5px_15px_rgba(252,211,77,0.7)]">
+            {{ message }}
+          </div>
+        </div>
+      }
+
+      <!-- Cards -->
+      <div class="grid grid-cols-4 gap-3 sm:gap-4">
+        @for (card of cards(); track card.id) {
+          <div
+            class="card-container aspect-square relative cursor-pointer"
+            [class.is-flipped]="card.isFlipped"
+            (click)="onCardClick(card)"
+          >
+            <div class="card-inner" [class.shake]="card.isMismatched">
+              <!-- Back of the Card (with Paw Design) -->
+              <div class="card-face card-back bg-blue-400 flex items-center justify-center rounded-lg shadow-md">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-12 h-12 text-white opacity-70" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm3.5 11.25a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zm-3.5 2a1.5 1.5 0 110-3 1.5 1.5 0 010 3zm-3.5-2a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM12 6.5a2.5 2.5 0 110 5 2.5 2.5 0 010-5z" />
+                </svg>
+              </div>
+
+              <!-- Front of the Card -->
+              <div
+                class="card-face card-front bg-white border-2 flex items-center justify-center text-center p-2 rounded-lg shadow-md"
+                [class.border-green-500]="card.isMatched"
+                [class.border-red-500]="card.isMismatched"
+                [class.border-yellow-400]="card.power && !card.isMatched"
+              >
+                @switch (card.type) {
+                  @case ('word') {
+                    <span class="text-lg sm:text-xl font-bold" [class.text-yellow-400]="card.power">{{ card.value }}</span>
+                  }
+                  @case ('image') {
+                    <img [ngSrc]="card.value" width="200" height="200" class="object-contain w-full h-full" alt="Card image">
+                  }
+                  @case ('definition') {
+                    <p class="text-xs sm:text-sm md:text-base leading-tight">{{ card.value }}</p>
+                  }
+                }
+              </div>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</main>

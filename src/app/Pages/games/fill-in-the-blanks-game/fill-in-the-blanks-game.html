@@ -1,0 +1,123 @@
+<!-- "Back to Games" link in its own clean header -->
+<div class="p-4 bg-white">
+  <a routerLink="/games"
+     class="inline-block bg-blue-500 text-white px-4 py-2 rounded-full shadow hover:bg-blue-600 hover:shadow-md transition">
+     ← Back to Games
+  </a>
+</div>
+
+<!-- Main game container with a clean, light gradient background -->
+<div class="min-h-screen bg-gradient-to-br bg-white text-slate-800 flex flex-col items-center justify-center p-4 font-sans">
+  
+  <!-- The Main Game Card -->
+  <div class="w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8">
+
+    @if (currentLevel(); as level) {
+
+      @if (gameState() !== 'finished') {
+        <!-- Header -->
+        <div class="flex justify-between items-center mb-6">
+          <h1 class="text-2xl font-bold text-sky-700">Word Scramble</h1>
+          <span class="text-sm font-medium bg-sky-100 text-sky-600 px-3 py-1 rounded-full">
+            {{ currentLevelIndex() + 1 }} / {{ gameData.length }}
+          </span>
+        </div>
+
+        <!-- Two-Column Layout -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+          
+          <!-- Column 1: Free Style Image & Hint Box -->
+          <div class="w-full flex flex-col items-center justify-center gap-4">
+            
+            <!-- 🖼️ Free Style Image Container -->
+            <div class="w-full h-80 flex items-center justify-center p-4">
+              <img 
+                [ngSrc]="level.imageUrl" 
+                alt="{{ level.hint }}" 
+                width="400" 
+                height="300"
+                priority
+                class="max-w-full max-h-full object-contain drop-shadow-2xl">
+            </div>
+
+            <!-- 💡 Separate Hint Box -->
+            <div class="w-full bg-sky-50 border-l-4 border-sky-400 p-4 rounded-r-lg">
+              <p class="text-sky-800 text-sm italic">
+                <span class="font-bold not-italic mr-1">Hint:</span> {{ level.hint }}
+              </p>
+            </div>
+          </div>
+
+          <!-- Column 2: Answer and Scrambled Letters -->
+          <div class="flex flex-col justify-center">
+            <!-- 🔤 Answer Area -->
+            <div class="flex items-center justify-center gap-2 h-20 mb-4">
+              @for (char of level.word.split(''); track $index) {
+                <div 
+                  (click)="userAnswer[$index] && removeLetter($index)"
+                  [class.cursor-pointer]="userAnswer[$index]"
+                  [class.border-green-500]="state === 'correct'"
+                  [class.border-red-500]="state === 'incorrect'"
+                  class="w-14 h-16 bg-slate-100 rounded-md flex items-center justify-center text-3xl font-bold uppercase border-2 border-slate-300 transition-all duration-300">
+                  @if (userAnswer[$index]; as answerLetter) {
+                    <span class="animate-in fade-in zoom-in-75 duration-300">{{ answerLetter }}</span>
+                  }
+                </div>
+              }
+            </div>
+
+            <!-- 🔠 Scrambled Letters -->
+            <div class="bg-slate-50 p-4 rounded-lg min-h-[140px] flex flex-wrap items-center justify-center gap-2">
+              @for (letter of scrambledLetters; track letter.originalIndex) {
+                <button
+                  (click)="selectLetter(letter)"
+                  [disabled]="letter.chosen || state !== 'playing'"
+                  [class.invisible]="letter.chosen"
+                  class="w-14 h-14 bg-sky-500 text-white hover:bg-sky-600 rounded-md flex items-center justify-center text-2xl font-bold uppercase shadow-md transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                  {{ letter.letter }}
+                </button>
+              }
+              @if (allLettersChosen()) {
+                 <p class="text-slate-500 italic">Click on a filled letter to return it.</p>
+              }
+            </div>
+          </div>
+        </div>
+
+        <!-- 🎯 Game State Feedback (at the bottom) -->
+        <div class="h-20 mt-6">
+          @switch (state) {
+            @case ('correct') {
+              <div class="text-center p-4 bg-green-100 rounded-lg animate-in fade-in duration-500">
+                <p class="text-xl font-semibold text-green-700 mb-2">🎉 Correct! Well Done! 🎉</p>
+                <button (click)="nextLevel()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                  Next Level
+                </button>
+              </div>
+            }
+            @case ('incorrect') {
+              <div class="text-center p-4 bg-red-100 rounded-lg animate-in fade-in duration-500">
+                <p class="text-xl font-semibold text-red-700 mb-2">🤔 Not quite, try again!</p>
+                <button (click)="retryLevel()" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+                  Retry
+                </button>
+              </div>
+            }
+          }
+        </div>
+      } @else {
+        <!-- 🏆 Finished -->
+        <div class="text-center p-8 flex flex-col items-center justify-center animate-in fade-in zoom-in-90 duration-500">
+          <span class="text-7xl mb-4">🏆</span>
+          <h2 class="text-3xl font-bold text-amber-500 mb-2">Congratulations!</h2>
+          <p class="text-slate-600 mb-6">You have completed all the levels.</p>
+          <button (click)="restartGame()" class="w-full max-w-xs mx-auto bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
+            Play Again
+          </button>
+        </div>
+      }
+    } @else {
+      <p>Loading game...</p>
+    }
+  </div>
+</div>
