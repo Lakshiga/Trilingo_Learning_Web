@@ -12,9 +12,12 @@ import { TranslateModule, TranslateService } from '@ngx-translate/core';
 export class Navbar {
   isMenuOpen = false;
   isLangMenuOpen = false;
+  isColorMenuOpen = false;
   selectedLanguage = 'English';
   private hideTimeout: any = null;
+  private hideColorTimeout: any = null;
   isDarkMode = false;
+  currentTheme = 'blue';
 
   languages = [
     { code: 'en', name: 'English', displayName: 'English' },
@@ -25,6 +28,7 @@ export class Navbar {
   constructor(private translate: TranslateService) {
     this.translate.setDefaultLang('en');
     this.initializeTheme();
+    this.initializeColorTheme();
   }
 
 
@@ -99,6 +103,64 @@ export class Navbar {
       root.classList.add('dark');
     } else {
       root.classList.remove('dark');
+    }
+  }
+
+  // Color theme handling
+  private initializeColorTheme(): void {
+    const saved = localStorage.getItem('colorTheme');
+    this.currentTheme = saved || 'blue';
+    this.applyColorTheme();
+  }
+
+  showColorMenu(): void {
+    if (this.hideColorTimeout) {
+      clearTimeout(this.hideColorTimeout);
+      this.hideColorTimeout = null;
+    }
+    this.isColorMenuOpen = true;
+  }
+
+  hideColorMenu(): void {
+    this.hideColorTimeout = setTimeout(() => {
+      this.isColorMenuOpen = false;
+    }, 300);
+  }
+
+  setTheme(theme: string): void {
+    this.currentTheme = theme;
+    localStorage.setItem('colorTheme', theme);
+    this.applyColorTheme();
+    this.isColorMenuOpen = false;
+  }
+
+  private applyColorTheme(): void {
+    const root = document.documentElement;
+    // Remove all theme classes
+    root.classList.remove('theme-blue', 'theme-yellow', 'theme-green', 'theme-purple', 'theme-orange');
+    // Add current theme class
+    root.classList.add(`theme-${this.currentTheme}`);
+  }
+
+  onColorHover(event: Event, color: string): void {
+    const target = event.target as HTMLElement;
+    if (target) {
+      // Temporarily change the navbar background to the hovered color
+      const navbar = document.querySelector('nav') as HTMLElement;
+      if (navbar) {
+        navbar.style.backgroundColor = color;
+      }
+    }
+  }
+
+  onColorLeave(event: Event, theme: string): void {
+    const target = event.target as HTMLElement;
+    if (target) {
+      // Restore the navbar background to the current theme color
+      const navbar = document.querySelector('nav') as HTMLElement;
+      if (navbar) {
+        navbar.style.backgroundColor = 'var(--primary-color)';
+      }
     }
   }
 }

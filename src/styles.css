@@ -1,17 +1,27 @@
 @import "tailwindcss";
 
+/* Color System Variables */
+:root {
+  --primary-color: #5B9EEA;
+  --secondary-color: #FFD54F;
+  --accent-color: #25c900;
+  --highlight-color: #B39DDB;
+  --warning-color: #FF8A65;
+}
+
 /* Global dark mode overrides driven by root .dark class */
 .dark body {
-  background-color: #0f172a; /* slate-900 */
+  background-color: #1E293B; /* same as pages and footer */
   color: #e5e7eb; /* gray-200 */
 }
 
 /* Containers and cards */
-.dark .bg-white { background-color: #1f2937 !important; } /* gray-800 */
+.dark .bg-white { background-color: #1E293B !important; } /* same as footer */
 .dark .text-gray-700 { color: #d1d5db !important; }
 .dark .text-gray-600 { color: #cbd5e1 !important; }
 .dark .border-gray-100 { border-color: #334155 !important; }
 .dark .border-gray-200 { border-color: #475569 !important; }
+.dark .border-gray-700 { border-color: #374151 !important; } /* very subtle border in dark mode */
 
 /* Buttons using project blue should keep contrast */
 .dark .bg-\[\#5B9EEA\] { color: #0b1220; }
@@ -19,5 +29,67 @@
 /* Navbar background tweak in dark */
 .dark nav.bg-\[\#5B9EEA\] { background-color: #0b4ea9 !important; }
 
+/* Footer separator in dark mode */
+.dark footer {
+  border-top: 2px solid #374151 !important; /* separates footer from pages */
+}
+
 /* Images not inverted */
 .dark img { filter: none; }
+
+/* Color Theme Classes */
+.theme-blue {
+  --primary-color: #5B9EEA;
+  --secondary-color: #FFD54F;
+  --accent-color: #25c900;
+  --highlight-color: #B39DDB;
+  --warning-color: #FF8A65;
+}
+
+.theme-yellow {
+  --primary-color: #FFD54F;
+  --secondary-color: #25c900;
+  --accent-color: #B39DDB;
+  --highlight-color: #FF8A65;
+  --warning-color: #5B9EEA;
+}
+
+.theme-green {
+  --primary-color: #25c900;
+  --secondary-color: #B39DDB;
+  --accent-color: #FF8A65;
+  --highlight-color: #5B9EEA;
+  --warning-color: #FFD54F;
+}
+
+.theme-purple {
+  --primary-color: #B39DDB;
+  --secondary-color: #FF8A65;
+  --accent-color: #5B9EEA;
+  --highlight-color: #FFD54F;
+  --warning-color: #25c900;
+}
+
+.theme-orange {
+  --primary-color: #FF8A65;
+  --secondary-color: #5B9EEA;
+  --accent-color: #FFD54F;
+  --highlight-color: #25c900;
+  --warning-color: #B39DDB;
+}
+
+/* Navbar hover effects with CSS variables */
+nav button:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+nav button[style*="color: var(--primary-color)"]:hover {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+/* Language dropdown hover effects */
+nav .block:hover {
+  background-color: var(--primary-color);
+}
