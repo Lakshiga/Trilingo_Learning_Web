@@ -180,17 +180,59 @@
         <a routerLink="/games" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.GAMES' | translate }}</a>
       </nav>
       
-      <!-- Language Selector -->
+      <!-- Theme Settings -->
       <div class="p-4 border-t border-white/20">
+        <!-- Dark/Light Toggle -->
         <button (click)="toggleTheme()" class="w-full mb-4 flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/15 text-white font-semibold hover:bg-white/20">
           <span *ngIf="!isDarkMode">🌙</span>
           <span *ngIf="isDarkMode">☀️</span>
           <span>{{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}</span>
         </button>
-        <label class="block text-sm font-semibold text-white mb-2">{{ 'NAV.LANGUAGE' | translate }}</label>
-        <select (change)="onLanguageSelect($event)" class="w-full px-3 py-2 rounded-lg bg-white font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-white" style="color: var(--primary-color)">
-          <option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.displayName === selectedLanguage">{{ lang.displayName }}</option>
-        </select>
+        
+        <!-- Color Theme Picker -->
+        <div class="mb-4">
+          <label class="block text-sm font-semibold text-white mb-3">Choose Theme Color</label>
+          <div class="grid grid-cols-5 gap-3">
+            <button (click)="setTheme('blue')" 
+                    class="w-12 h-12 rounded-full bg-[#5B9EEA] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
+                    [class.border-white]="currentTheme === 'blue'"
+                    [class.ring-2]="currentTheme === 'blue'"
+                    [class.ring-white]="currentTheme === 'blue'">
+            </button>
+            <button (click)="setTheme('yellow')" 
+                    class="w-12 h-12 rounded-full bg-[#FFD54F] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
+                    [class.border-white]="currentTheme === 'yellow'"
+                    [class.ring-2]="currentTheme === 'yellow'"
+                    [class.ring-white]="currentTheme === 'yellow'">
+            </button>
+            <button (click)="setTheme('green')" 
+                    class="w-12 h-12 rounded-full bg-[#25c900] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
+                    [class.border-white]="currentTheme === 'green'"
+                    [class.ring-2]="currentTheme === 'green'"
+                    [class.ring-white]="currentTheme === 'green'">
+            </button>
+            <button (click)="setTheme('purple')" 
+                    class="w-12 h-12 rounded-full bg-[#B39DDB] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
+                    [class.border-white]="currentTheme === 'purple'"
+                    [class.ring-2]="currentTheme === 'purple'"
+                    [class.ring-white]="currentTheme === 'purple'">
+            </button>
+            <button (click)="setTheme('orange')" 
+                    class="w-12 h-12 rounded-full bg-[#FF8A65] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
+                    [class.border-white]="currentTheme === 'orange'"
+                    [class.ring-2]="currentTheme === 'orange'"
+                    [class.ring-white]="currentTheme === 'orange'">
+            </button>
+          </div>
+        </div>
+        
+        <!-- Language Selector -->
+        <div>
+          <label class="block text-sm font-semibold text-white mb-2">{{ 'NAV.LANGUAGE' | translate }}</label>
+          <select (change)="onLanguageSelect($event)" class="w-full px-3 py-2 rounded-lg bg-white font-medium shadow-sm focus:outline-none focus:ring-2 focus:ring-white" style="color: var(--primary-color)">
+            <option *ngFor="let lang of languages" [value]="lang.code" [selected]="lang.displayName === selectedLanguage">{{ lang.displayName }}</option>
+          </select>
+        </div>
       </div>
     
     </aside>
