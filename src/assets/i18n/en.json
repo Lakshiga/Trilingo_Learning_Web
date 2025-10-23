@@ -76,7 +76,10 @@
     "QUICK_LINKS": "Quick Links",
     "SUPPORT": "Support",
     "GET_THE_APP": "Get the App",
-    "COPYRIGHT": "All Rights Reserved"
+    "COPYRIGHT": "All Rights Reserved",
+    "HELP_CENTER": "Help Center",
+    "CONTACT_US": "Contact Us",
+    "FAQS": "FAQs"
   },
   "PRE_APP": {
     "TITLE": "Trilingo",
@@ -125,6 +128,74 @@
       "DESCRIPTION": "Download the full Trilingo app for unlimited learning!",
       "DOWNLOAD": "Download App"
     }
+  },
+  "GAME": {
+    "BACK_TO_GAMES": "← Back to Games",
+    "WORD_MATCH": {
+      "TITLE": "Word-Image Match",
+      "DESCRIPTION": "Match the words with the correct images!",
+      "CONGRATULATIONS": "Congratulations!",
+      "ALL_CORRECT": "All pairs matched correctly!",
+      "RESULTS": "Here are your results!",
+      "CORRECT": "Correct",
+      "INCORRECT": "Incorrect",
+      "SCORE": "Score",
+      "CHECK_ANSWERS": "Check Answers",
+      "PLAY_AGAIN": "Play Again"
+    },
+    "FILL_BLANKS": {
+      "TITLE": "Word Scramble",
+      "HINT": "Hint:",
+      "CORRECT": "🎉 Correct! Well Done! 🎉",
+      "INCORRECT": "🤔 Not quite, try again!",
+      "NEXT_LEVEL": "Next Level",
+      "RETRY": "Retry",
+      "CONGRATULATIONS": "Congratulations!",
+      "COMPLETED": "You have completed all the levels.",
+      "PLAY_AGAIN": "Play Again",
+      "LOADING": "Loading game..."
+    },
+    "MEMORY_PAIR": {
+      "TITLE": "Word Memory Puzzle",
+      "RESTART": "Restart",
+      "SCORE": "SCORE",
+      "HIGH": "HIGH",
+      "COMBO": "COMBO",
+      "TIME": "TIME",
+      "YOU_WIN": "You Win!",
+      "TIMES_UP": "Time's Up!",
+      "FINAL_SCORE": "Final Score:",
+      "PLAY_AGAIN": "Play Again"
+    },
+    "VOICE_REPEAT": {
+      "TITLE": "Voice Repeat Game",
+      "DESCRIPTION": "Listen to the word and repeat it correctly!",
+      "LISTENING": "Listening...",
+      "SPEAK_NOW": "Speak Now!",
+      "READY": "Ready to test. Press the button to speak.",
+      "CHECKING": "Checking result...",
+      "CORRECT": "Correct pronunciation! You said:",
+      "INCORRECT": "Pronunciation error. You said:",
+      "BUT_TARGET": "but target word is:",
+      "START_SPEAKING": "Start Speaking",
+      "NEXT_WORD": "Next Word",
+      "LISTEN": "Listen",
+      "ERROR_NO_SPEECH": "No speech detected. Check your microphone and try again.",
+      "ERROR_NOT_ALLOWED": "Microphone permission denied. Check your browser settings.",
+      "ERROR_GENERAL": "Error occurred. Check your microphone.",
+      "NOT_SUPPORTED": "Microphone feature not supported in this browser. Use Chrome or Edge.",
+      "YOU_SAID": "You said:",
+      "TARGET_WORD": "Target Word",
+      "CURRENT_LANGUAGE": "Current Language:"
+    }
+  },
+  "UI": {
+    "COLORS": "Colors",
+    "CHOOSE_THEME_COLOR": "Choose Theme Color",
+    "LIGHT_MODE": "Light Mode",
+    "DARK_MODE": "Dark Mode",
+    "LIGHT": "Light",
+    "DARK": "Dark"
   }
 }
 

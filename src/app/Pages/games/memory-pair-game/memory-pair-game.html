@@ -1,8 +1,8 @@
 <!-- "Back to Games" link with a light theme style -->
 <div class="p-4 bg-white">
   <a routerLink="/games"
-     class="inline-block bg-blue-500 text-white px-4 py-2 rounded-full shadow hover:bg-blue-600 hover:shadow-md transition">
-     ← Back to Games
+     class="inline-block btn-primary px-4 py-2 rounded-full shadow hover:shadow-md transition">
+     {{ 'GAME.BACK_TO_GAMES' | translate }}
   </a>
 </div>
 
@@ -13,29 +13,29 @@
     <!-- Header -->
     <header class="flex flex-col sm:flex-row justify-between items-center mb-6 gap-4">
       <h1 class="text-3xl sm:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-        Word Memory Puzzle
+        {{ 'GAME.MEMORY_PAIR.TITLE' | translate }}
       </h1>
-      <button (click)="restartGame()" class="px-6 py-2 bg-indigo-500 hover:bg-indigo-600 text-white rounded-lg font-semibold shadow-lg">
-        Restart
+      <button (click)="restartGame()" class="px-6 py-2 btn-highlight rounded-lg font-semibold shadow-lg">
+        {{ 'GAME.MEMORY_PAIR.RESTART' | translate }}
       </button>
     </header>
 
     <!-- Stats -->
     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-6 p-4 bg-white rounded-lg shadow-md border">
       <div class="text-center">
-        <div class="text-sm text-gray-500">SCORE</div>
+        <div class="text-sm text-gray-500">{{ 'GAME.MEMORY_PAIR.SCORE' | translate }}</div>
         <div class="text-3xl font-bold text-blue-500">{{ score() }}</div>
       </div>
       <div class="text-center">
-        <div class="text-sm text-gray-500">HIGH</div>
+        <div class="text-sm text-gray-500">{{ 'GAME.MEMORY_PAIR.HIGH' | translate }}</div>
         <div class="text-3xl font-bold text-slate-600">{{ highScore() }}</div>
       </div>
       <div class="text-center">
-        <div class="text-sm text-gray-500">COMBO</div>
+        <div class="text-sm text-gray-500">{{ 'GAME.MEMORY_PAIR.COMBO' | translate }}</div>
         <div class="text-3xl font-bold text-indigo-500">{{ combo() }}x</div>
       </div>
       <div class="text-center">
-        <div class="text-sm text-gray-500">TIME</div>
+        <div class="text-sm text-gray-500">{{ 'GAME.MEMORY_PAIR.TIME' | translate }}</div>
         <div class="text-3xl font-bold" [class.text-red-500]="timer() <= 10">{{ timer() }}</div>
       </div>
     </div>
@@ -47,14 +47,14 @@
         <div class="absolute inset-0 bg-white/90 backdrop-blur-sm flex flex-col justify-center items-center z-20 rounded-lg">
           <h2 class="text-5xl font-extrabold mb-4">
             @if (allCardsMatched()) {
-              <span class="text-green-500">You Win!</span>
+              <span class="text-green-500">{{ 'GAME.MEMORY_PAIR.YOU_WIN' | translate }}</span>
             } @else {
-              <span class="text-red-500">Time’s Up!</span>
+              <span class="text-red-500">{{ 'GAME.MEMORY_PAIR.TIMES_UP' | translate }}</span>
             }
           </h2>
-          <p class="text-2xl text-slate-700 mb-6">Final Score: {{ score() }}</p>
-          <button (click)="restartGame()" class="px-8 py-3 bg-green-500 hover:bg-green-600 text-white rounded-lg text-lg font-bold shadow-xl">
-            Play Again
+          <p class="text-2xl text-slate-700 mb-6">{{ 'GAME.MEMORY_PAIR.FINAL_SCORE' | translate }} {{ score() }}</p>
+          <button (click)="restartGame()" class="px-8 py-3 btn-accent rounded-lg text-lg font-bold shadow-xl">
+            {{ 'GAME.MEMORY_PAIR.PLAY_AGAIN' | translate }}
           </button>
         </div>
       }

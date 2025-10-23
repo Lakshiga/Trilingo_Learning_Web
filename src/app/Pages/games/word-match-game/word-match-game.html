@@ -1,7 +1,7 @@
 <div class="p-4 bg-white">
   <a routerLink="/games"
-     class="inline-block bg-blue-500 text-white px-4 py-2 rounded-full shadow hover:bg-blue-600 hover:shadow-md transition">
-     ← Back to Games
+     class="inline-block btn-primary px-4 py-2 rounded-full shadow hover:shadow-md transition">
+     {{ 'GAME.BACK_TO_GAMES' | translate }}
   </a>
 </div>
 
@@ -10,31 +10,31 @@
   <div class="w-full max-w-3xl mx-auto">
     <!-- Header -->
     <header class="text-center mb-8">
-      <h1 class="text-3xl md:text-4xl font-bold text-cyan-700 mb-2">Word-Image Match</h1>
-      <p class="text-gray-700 text-base md:text-lg">Match the words with the correct images!</p>
+      <h1 class="text-3xl md:text-4xl font-bold text-primary mb-2">{{ 'GAME.WORD_MATCH.TITLE' | translate }}</h1>
+      <p class="text-gray-700 text-base md:text-lg">{{ 'GAME.WORD_MATCH.DESCRIPTION' | translate }}</p>
     </header>
 
     <!-- Results -->
     <div *ngIf="gameState() === 'finished'" class="text-center bg-gray-100 border border-gray-300 p-6 rounded-xl shadow mb-8">
       <div *ngIf="allCorrect(); else partial">
         <h2 class="text-4xl mb-2">🎉</h2>
-        <h3 class="text-2xl font-bold text-green-600">Congratulations!</h3>
-        <p class="text-green-700 text-base mt-2">All pairs matched correctly!</p>
+        <h3 class="text-2xl font-bold text-green-600">{{ 'GAME.WORD_MATCH.CONGRATULATIONS' | translate }}</h3>
+        <p class="text-green-700 text-base mt-2">{{ 'GAME.WORD_MATCH.ALL_CORRECT' | translate }}</p>
       </div>
       <ng-template #partial>
-        <h3 class="text-xl font-bold text-cyan-600 mb-2">Here are your results!</h3>
+        <h3 class="text-xl font-bold text-cyan-600 mb-2">{{ 'GAME.WORD_MATCH.RESULTS' | translate }}</h3>
         <div class="flex justify-center gap-6 text-sm md:text-base mt-2">
           <div class="flex flex-col items-center">
             <span class="font-bold text-lg text-green-600">{{ correctCount() }}</span>
-            <span class="text-gray-500">Correct</span>
+            <span class="text-gray-500">{{ 'GAME.WORD_MATCH.CORRECT' | translate }}</span>
           </div>
           <div class="flex flex-col items-center">
             <span class="font-bold text-lg text-red-600">{{ incorrectCount() }}</span>
-            <span class="text-gray-500">Incorrect</span>
+            <span class="text-gray-500">{{ 'GAME.WORD_MATCH.INCORRECT' | translate }}</span>
           </div>
           <div class="flex flex-col items-center">
             <span class="font-bold text-lg text-amber-600">{{ score() }}</span>
-            <span class="text-gray-500">Score</span>
+            <span class="text-gray-500">{{ 'GAME.WORD_MATCH.SCORE' | translate }}</span>
           </div>
         </div>
       </ng-template>
@@ -91,17 +91,17 @@
         *ngIf="gameState() === 'playing'; else replay"
         (click)="checkAnswers()"
         [disabled]="!allPairsMade()"
-        class="px-10 py-3 text-base font-bold rounded-lg bg-cyan-600 hover:bg-cyan-500 text-white disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+        class="px-10 py-3 text-base font-bold rounded-lg btn-primary disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
       >
-        Check Answers
+        {{ 'GAME.WORD_MATCH.CHECK_ANSWERS' | translate }}
       </button>
 
       <ng-template #replay>
         <button
           (click)="setupGame()"
-          class="px-10 py-3 text-base font-bold rounded-lg bg-amber-600 hover:bg-amber-500 text-white"
+          class="px-10 py-3 text-base font-bold rounded-lg btn-highlight"
         >
-          Play Again
+          {{ 'GAME.WORD_MATCH.PLAY_AGAIN' | translate }}
         </button>
       </ng-template>
     </footer>

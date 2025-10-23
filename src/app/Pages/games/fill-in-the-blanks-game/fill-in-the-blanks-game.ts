@@ -1,11 +1,12 @@
 import { Component, ChangeDetectionStrategy, OnInit, computed, inject, signal } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-fill-in-the-blank-game',
   standalone: true,
-  imports: [CommonModule,NgOptimizedImage,RouterLink],
+  imports: [CommonModule,NgOptimizedImage,RouterLink,TranslateModule],
   templateUrl: './fill-in-the-blanks-game.html',
   styleUrls: ['./fill-in-the-blanks-game.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
