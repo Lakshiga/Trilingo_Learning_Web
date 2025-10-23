@@ -88,7 +88,7 @@
            (mouseleave)="hideColorMenu()">
         <button class="flex items-center gap-2 px-3 py-2 rounded-full bg-white font-semibold shadow hover:shadow-lg hover:scale-105 transition-all duration-300" style="color: var(--primary-color)" onmouseover="this.style.backgroundColor = 'var(--primary-color)'; this.style.color = 'white'" onmouseout="this.style.backgroundColor = 'white'; this.style.color = 'var(--primary-color)'">
           <span>🎨</span>
-          <span class="text-sm">Colors</span>
+          <span class="text-sm">{{ 'UI.COLORS' | translate }}</span>
         </button>
         
         <!-- Color Palette Dropdown -->
@@ -97,7 +97,7 @@
              [class.opacity-100]="isColorMenuOpen"
              [class.translate-y-0]="isColorMenuOpen">
           <div class="p-4">
-            <h3 class="text-sm font-semibold text-gray-700 mb-3">Choose Theme Color</h3>
+            <h3 class="text-sm font-semibold text-gray-700 mb-3">{{ 'UI.CHOOSE_THEME_COLOR' | translate }}</h3>
             <div class="grid grid-cols-5 gap-2">
               <button (click)="setTheme('blue')" 
                       class="w-10 h-10 rounded-full bg-[#5B9EEA] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
@@ -138,7 +138,7 @@
       <button (click)="toggleTheme()" class="ml-2 flex items-center gap-2 px-3 py-2 rounded-full bg-white font-semibold shadow hover:shadow-lg hover:scale-105 transition-all duration-300" style="color: var(--primary-color)" onmouseover="this.style.backgroundColor = 'var(--primary-color)'; this.style.color = 'white'" onmouseout="this.style.backgroundColor = 'white'; this.style.color = 'var(--primary-color)'">
         <span *ngIf="!isDarkMode">🌙</span>
         <span *ngIf="isDarkMode">☀️</span>
-        <span class="text-sm">{{ isDarkMode ? 'Light' : 'Dark' }}</span>
+        <span class="text-sm">{{ isDarkMode ? ('UI.LIGHT' | translate) : ('UI.DARK' | translate) }}</span>
       </button>
     </div>
 
@@ -186,12 +186,12 @@
         <button (click)="toggleTheme()" class="w-full mb-4 flex items-center justify-center gap-2 px-3 py-2 rounded-lg bg-white/15 text-white font-semibold hover:bg-white/20">
           <span *ngIf="!isDarkMode">🌙</span>
           <span *ngIf="isDarkMode">☀️</span>
-          <span>{{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}</span>
+          <span>{{ isDarkMode ? ('UI.LIGHT_MODE' | translate) : ('UI.DARK_MODE' | translate) }}</span>
         </button>
         
         <!-- Color Theme Picker -->
         <div class="mb-4">
-          <label class="block text-sm font-semibold text-white mb-3">Choose Theme Color</label>
+          <label class="block text-sm font-semibold text-white mb-3">{{ 'UI.CHOOSE_THEME_COLOR' | translate }}</label>
           <div class="grid grid-cols-5 gap-3">
             <button (click)="setTheme('blue')" 
                     class="w-12 h-12 rounded-full bg-[#5B9EEA] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"

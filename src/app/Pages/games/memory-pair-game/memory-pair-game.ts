@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, signal, computed, effect } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 interface Card {
   id: number;
@@ -33,7 +34,7 @@ const INITIAL_CARDS_DATA: Omit<Card, 'isFlipped' | 'isMatched' | 'isMismatched'>
 @Component({
   selector: 'app-memory-pair-game',
   standalone: true,
-  imports: [CommonModule,NgOptimizedImage,RouterLink],
+  imports: [CommonModule,NgOptimizedImage,RouterLink,TranslateModule],
   templateUrl: './memory-pair-game.html',
   styleUrls: ['./memory-pair-game.css'],
   changeDetection: ChangeDetectionStrategy.OnPush

@@ -1,0 +1,114 @@
+<!-- Voice Repeat Game -->
+<div class="p-4 bg-white">
+  <a routerLink="/games"
+     class="inline-block btn-primary px-4 py-2 rounded-full shadow hover:shadow-md transition">
+     {{ 'GAME.BACK_TO_GAMES' | translate }}
+  </a>
+</div>
+
+<section class="bg-white min-h-screen py-8">
+  <div class="max-w-4xl mx-auto px-4">
+    
+    <!-- Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ 'GAME.VOICE_REPEAT.TITLE' | translate }}</h1>
+      <p class="text-lg text-gray-600">{{ 'GAME.VOICE_REPEAT.DESCRIPTION' | translate }}</p>
+    </div>
+
+    <!-- Game Container -->
+    <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 p-8">
+
+      <!-- Target Word Display -->
+      <div class="text-center mb-8">
+        <p class="text-sm uppercase text-gray-500 mb-4 tracking-wider">
+          {{ 'GAME.VOICE_REPEAT.TARGET_WORD' | translate }}
+        </p>
+        
+        <!-- Word Image -->
+        <div class="mb-6">
+          <img 
+            [src]="targetWord.image" 
+            [alt]="targetWord.word"
+            class="w-32 h-32 mx-auto object-contain rounded-lg shadow-lg border-2 border-gray-200"
+          >
+        </div>
+
+        <!-- Target Word Text -->
+        <div class="bg-gray-50 p-6 rounded-xl border-2 border-primary shadow-lg">
+          <p class="text-4xl font-black text-gray-800 tracking-wider">{{ targetWord.word }}</p>
+        </div>
+
+        <!-- Audio Play Button -->
+        <button 
+          (click)="playAudio()"
+          class="mt-4 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition duration-300 transform hover:scale-105"
+        >
+          🔊 {{ 'GAME.VOICE_REPEAT.LISTEN' | translate }}
+        </button>
+      </div>
+
+      <!-- Status Display -->
+      <div class="mb-8">
+        <div [class]="'p-6 rounded-xl text-center font-bold text-lg text-white transition-all duration-500 ' + getStatusClass()">
+          <div *ngIf="status === 'listening'" class="flex items-center justify-center">
+            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
+            {{ getStatusText() }}
+          </div>
+          <div *ngIf="status !== 'listening'">
+            {{ getStatusText() }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Transcript Display -->
+      <div *ngIf="transcript" class="mb-8 text-center p-4 bg-gray-50 rounded-lg border">
+        <p class="text-sm uppercase text-gray-500 mb-2">{{ 'GAME.VOICE_REPEAT.YOU_SAID' | translate }}</p>
+        <p class="text-2xl font-semibold text-primary">{{ transcript }}</p>
+      </div>
+
+      <!-- Control Buttons -->
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <button 
+          (click)="startListening()"
+          [disabled]="isButtonDisabled()"
+          [class]="isButtonDisabled() 
+            ? 'bg-gray-400 text-gray-600 cursor-not-allowed px-8 py-4 rounded-xl font-bold text-xl transition duration-300' 
+            : 'bg-primary hover:bg-primary-dark active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg transition duration-300 transform'"
+        >
+          {{ status === 'listening' ? ('GAME.VOICE_REPEAT.LISTENING' | translate) : ('GAME.VOICE_REPEAT.START_SPEAKING' | translate) }}
+        </button>
+        
+        <button 
+          (click)="nextWord()"
+          class="bg-gray-600 hover:bg-gray-700 active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg transition duration-300 transform"
+        >
+          {{ 'GAME.VOICE_REPEAT.NEXT_WORD' | translate }}
+        </button>
+      </div>
+
+      <!-- Debug Info (remove in production) -->
+      <div class="mt-4 p-3 bg-gray-100 rounded-lg text-xs">
+        <p><strong>Debug Info:</strong></p>
+        <p>Status: {{ status }}</p>
+        <p>Supported: {{ isSupported }}</p>
+        <p>Recognition: {{ isRecognitionInitialized ? 'Initialized' : 'Not initialized' }}</p>
+        <p>Current Language: {{ currentLang }}</p>
+        <p>Language Code: {{ currentLanguageData.langCode }}</p>
+        <button 
+          (click)="reinitializeSpeechRecognition()"
+          class="mt-2 px-3 py-1 bg-blue-500 text-white rounded text-xs hover:bg-blue-600"
+        >
+          Reinitialize Speech Recognition
+        </button>
+      </div>
+
+      <!-- Browser Support Warning -->
+      <div *ngIf="!isSupported" class="mt-8 p-4 bg-red-50 border border-red-200 rounded-lg">
+        <p class="text-sm text-red-600 text-center">
+          {{ 'GAME.VOICE_REPEAT.NOT_SUPPORTED' | translate }}
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>

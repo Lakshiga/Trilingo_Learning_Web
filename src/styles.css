@@ -93,3 +93,117 @@ nav button[style*="color: var(--primary-color)"]:hover {
 nav .block:hover {
   background-color: var(--primary-color);
 }
+
+/* Dynamic Theme Button Classes */
+.btn-primary {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color) !important;
+  color: white !important;
+}
+
+.btn-secondary:hover {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+.btn-accent {
+  background-color: var(--accent-color) !important;
+  color: white !important;
+}
+
+.btn-accent:hover {
+  background-color: var(--highlight-color) !important;
+  color: white !important;
+}
+
+.btn-highlight {
+  background-color: var(--highlight-color) !important;
+  color: white !important;
+}
+
+.btn-highlight:hover {
+  background-color: var(--warning-color) !important;
+  color: white !important;
+}
+
+.btn-warning {
+  background-color: var(--warning-color) !important;
+  color: white !important;
+}
+
+.btn-warning:hover {
+  background-color: var(--primary-color) !important;
+  color: white !important;
+}
+
+/* Text colors using theme variables */
+.text-primary {
+  color: var(--primary-color) !important;
+}
+
+.text-secondary {
+  color: var(--secondary-color) !important;
+}
+
+.text-accent {
+  color: var(--accent-color) !important;
+}
+
+.text-highlight {
+  color: var(--highlight-color) !important;
+}
+
+.text-warning {
+  color: var(--warning-color) !important;
+}
+
+/* Background colors using theme variables */
+.bg-primary {
+  background-color: var(--primary-color) !important;
+}
+
+.bg-secondary {
+  background-color: var(--secondary-color) !important;
+}
+
+.bg-accent {
+  background-color: var(--accent-color) !important;
+}
+
+.bg-highlight {
+  background-color: var(--highlight-color) !important;
+}
+
+.bg-warning {
+  background-color: var(--warning-color) !important;
+}
+
+/* Border colors using theme variables */
+.border-primary {
+  border-color: var(--primary-color) !important;
+}
+
+.border-secondary {
+  border-color: var(--secondary-color) !important;
+}
+
+.border-accent {
+  border-color: var(--accent-color) !important;
+}
+
+.border-highlight {
+  border-color: var(--highlight-color) !important;
+}
+
+.border-warning {
+  border-color: var(--warning-color) !important;
+}

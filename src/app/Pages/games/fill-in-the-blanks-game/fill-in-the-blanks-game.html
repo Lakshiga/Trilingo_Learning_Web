@@ -1,8 +1,8 @@
 <!-- "Back to Games" link in its own clean header -->
 <div class="p-4 bg-white">
   <a routerLink="/games"
-     class="inline-block bg-blue-500 text-white px-4 py-2 rounded-full shadow hover:bg-blue-600 hover:shadow-md transition">
-     ← Back to Games
+     class="inline-block btn-primary px-4 py-2 rounded-full shadow hover:shadow-md transition">
+     {{ 'GAME.BACK_TO_GAMES' | translate }}
   </a>
 </div>
 
@@ -17,7 +17,7 @@
       @if (gameState() !== 'finished') {
         <!-- Header -->
         <div class="flex justify-between items-center mb-6">
-          <h1 class="text-2xl font-bold text-sky-700">Word Scramble</h1>
+          <h1 class="text-2xl font-bold text-primary">{{ 'GAME.FILL_BLANKS.TITLE' | translate }}</h1>
           <span class="text-sm font-medium bg-sky-100 text-sky-600 px-3 py-1 rounded-full">
             {{ currentLevelIndex() + 1 }} / {{ gameData.length }}
           </span>
@@ -43,7 +43,7 @@
             <!-- 💡 Separate Hint Box -->
             <div class="w-full bg-sky-50 border-l-4 border-sky-400 p-4 rounded-r-lg">
               <p class="text-sky-800 text-sm italic">
-                <span class="font-bold not-italic mr-1">Hint:</span> {{ level.hint }}
+                <span class="font-bold not-italic mr-1">{{ 'GAME.FILL_BLANKS.HINT' | translate }}</span> {{ level.hint }}
               </p>
             </div>
           </div>
@@ -89,17 +89,17 @@
           @switch (state) {
             @case ('correct') {
               <div class="text-center p-4 bg-green-100 rounded-lg animate-in fade-in duration-500">
-                <p class="text-xl font-semibold text-green-700 mb-2">🎉 Correct! Well Done! 🎉</p>
-                <button (click)="nextLevel()" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
-                  Next Level
+                <p class="text-xl font-semibold text-green-700 mb-2">{{ 'GAME.FILL_BLANKS.CORRECT' | translate }}</p>
+                <button (click)="nextLevel()" class="w-full btn-accent font-bold py-3 px-4 rounded-lg transition-colors">
+                  {{ 'GAME.FILL_BLANKS.NEXT_LEVEL' | translate }}
                 </button>
               </div>
             }
             @case ('incorrect') {
               <div class="text-center p-4 bg-red-100 rounded-lg animate-in fade-in duration-500">
-                <p class="text-xl font-semibold text-red-700 mb-2">🤔 Not quite, try again!</p>
-                <button (click)="retryLevel()" class="w-full bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
-                  Retry
+                <p class="text-xl font-semibold text-red-700 mb-2">{{ 'GAME.FILL_BLANKS.INCORRECT' | translate }}</p>
+                <button (click)="retryLevel()" class="w-full btn-warning font-bold py-3 px-4 rounded-lg transition-colors">
+                  {{ 'GAME.FILL_BLANKS.RETRY' | translate }}
                 </button>
               </div>
             }
@@ -109,15 +109,15 @@
         <!-- 🏆 Finished -->
         <div class="text-center p-8 flex flex-col items-center justify-center animate-in fade-in zoom-in-90 duration-500">
           <span class="text-7xl mb-4">🏆</span>
-          <h2 class="text-3xl font-bold text-amber-500 mb-2">Congratulations!</h2>
-          <p class="text-slate-600 mb-6">You have completed all the levels.</p>
-          <button (click)="restartGame()" class="w-full max-w-xs mx-auto bg-sky-500 hover:bg-sky-600 text-white font-bold py-3 px-4 rounded-lg transition-colors">
-            Play Again
+          <h2 class="text-3xl font-bold text-amber-500 mb-2">{{ 'GAME.FILL_BLANKS.CONGRATULATIONS' | translate }}</h2>
+          <p class="text-slate-600 mb-6">{{ 'GAME.FILL_BLANKS.COMPLETED' | translate }}</p>
+          <button (click)="restartGame()" class="w-full max-w-xs mx-auto btn-primary font-bold py-3 px-4 rounded-lg transition-colors">
+            {{ 'GAME.FILL_BLANKS.PLAY_AGAIN' | translate }}
           </button>
         </div>
       }
     } @else {
-      <p>Loading game...</p>
+      <p>{{ 'GAME.FILL_BLANKS.LOADING' | translate }}</p>
     }
   </div>
 </div>

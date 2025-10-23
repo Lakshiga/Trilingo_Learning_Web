@@ -3,12 +3,13 @@ import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ImageItem, WordItem } from '../game_model';
 import { WordMatchService } from './word-match-service';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 
 @Component({
   selector: 'app-word-match-game',
   standalone: true,
-  imports: [CommonModule,NgOptimizedImage,RouterLink],
+  imports: [CommonModule,NgOptimizedImage,RouterLink,TranslateModule],
   templateUrl: './word-match-game.html',
   styleUrls: ['./word-match-game.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
