@@ -20,11 +20,11 @@
         {{ 'NAV.HOME' | translate }}
       </a>
       <a 
-        routerLink="/features" 
+        routerLink="/library" 
         routerLinkActive="text-white border-b-2 border-white" 
         class="text-white hover:text-gray-100"
       >
-        {{ 'NAV.FEATURES' | translate }}
+      {{ 'NAV.LIBRARY' | translate }}
       </a>
       <a 
         routerLink="/games" 
@@ -176,7 +176,7 @@
       <!-- Navigation Links -->
       <nav class="p-4 space-y-2">
         <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.HOME' | translate }}</a>
-        <a routerLink="/features" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.FEATURES' | translate }}</a>
+        <a routerLink="/library" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.LIBRARY' | translate }}</a>
         <a routerLink="/games" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.GAMES' | translate }}</a>
       </nav>
       

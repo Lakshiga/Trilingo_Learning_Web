@@ -2,6 +2,7 @@
   "NAV": {
     "HOME": "Home",
     "FEATURES": "Features",
+    "LIBRARY": "Library",
     "GAMES": "Games",
     "START_LEARNING": "Try Now",
     "LANGUAGE": "Language"
@@ -187,6 +188,52 @@
       "YOU_SAID": "You said:",
       "TARGET_WORD": "Target Word",
       "CURRENT_LANGUAGE": "Current Language:"
+    }
+  },
+  "LIBRARY": {
+    "TITLE": "Learning Library",
+    "SUBTITLE": "Explore our curated collection of educational videos to enhance your language learning journey.",
+    "TAMIL_VIDEOS": "Tamil Learning Videos",
+    "SINHALA_VIDEOS": "Sinhala Learning Videos",
+    "ENGLISH_VIDEOS": "English Learning Videos",
+    "READY_TO_LEARN": "Ready to Start Learning?",
+    "JOIN_LEARNERS": "Join thousands of learners who are mastering multiple languages with Trilingo.",
+    "START_LEARNING": "Start Learning Now",
+    "TAMIL_VIDEO_1": {
+      "TITLE": "உருளைக்கிழங்கு செல்லக்குட்டி 🥔🎵",
+      "DESCRIPTION": "A delightful Tamil song for children, 'Urulaikizhangu Chellakutti' — learning and fun combined with the song!"
+    },
+    "TAMIL_VIDEO_2": {
+      "TITLE": "தோசை அம்மா தோசை பாடல் 🍽️",
+      "DESCRIPTION": "A delightful Tamil song for young children, 'Dosai Amma Dosai' — a perfect rhyme for kids to happily learn and sing along."
+    },
+    "TAMIL_VIDEO_3": {
+      "TITLE": "அ ஆ இ ஈ உயிர் எழுத்துக்கள் பாடல் 🎶",
+      "DESCRIPTION": "An educational song that helps children easily learn the Tamil vowels. This beautiful song promotes learning with music, sound association, and memory development."
+    },
+    "SINHALA_VIDEO_1": {
+      "TITLE": "ඩිගිසි ඩිගාරේ – සතුන්ගේ නර්තනය 🐾🎶",
+      "DESCRIPTION": "A lively and colorful Sinhala animal dance song that engages children with fun movements and catchy tunes. Perfect for preschoolers to learn about animals and enjoy interactive play."
+    },
+    "SINHALA_VIDEO_2": {
+      "TITLE": "දඟකාරයි හැඩකාරයි සමනලයින් වගේ",
+      "DESCRIPTION": "A lively and colorful Sinhala animal dance song that engages children with fun movements and catchy tunes. Perfect for preschoolers to learn about animals and enjoy interactive play."
+    },
+    "SINHALA_VIDEO_3": {
+      "TITLE": "පිංචි සහ අකුරු – ටිකිරි ඇනිමේෂන්ස්",
+      "DESCRIPTION": "An engaging Sinhala animated series designed to teach children the Sinhala alphabet through fun characters and catchy songs."
+    },
+    "ENGLISH_VIDEO_1": {
+      "TITLE": "The Alphabet Song – Learn the ABCs 🎵",
+      "DESCRIPTION": "A fun and engaging song that helps children learn the English alphabet from A to Z. Perfect for early learners to sing along and recognize letters easily."
+    },
+    "ENGLISH_VIDEO_2": {
+      "TITLE": "Baby Shark Dance 🦈🎶",
+      "DESCRIPTION": "A catchy and colorful song for children to sing and move along with animal friends. Perfect for fun learning, rhythm, and early development."
+    },
+    "ENGLISH_VIDEO_3": {
+      "TITLE": "Rain, Rain, Go Away ☔🎶",
+      "DESCRIPTION": "A colourful and fun animation of the classic nursery rhyme, where kids sing along as the rain takes a break and playtime resumes. Perfect for preschoolers and early learners!"
     }
   },
   "UI": {

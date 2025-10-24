@@ -37,6 +37,64 @@
 /* Images not inverted */
 .dark img { filter: none; }
 
+/* Library Page Dark Mode Styles */
+.dark .bg-gradient-to-r {
+  background: linear-gradient(to right, #1e293b, #334155) !important;
+}
+
+.dark .bg-gradient-to-r.from-blue-50 {
+  background: linear-gradient(to right, #1e293b, #334155) !important;
+}
+
+.dark .bg-gradient-to-r.from-green-50 {
+  background: linear-gradient(to right, #1e293b, #334155) !important;
+}
+
+.dark .bg-gradient-to-r.from-emerald-50 {
+  background: linear-gradient(to right, #1e293b, #334155) !important;
+}
+
+.dark .bg-gradient-to-r.from-purple-50 {
+  background: linear-gradient(to right, #1e293b, #334155) !important;
+}
+
+.dark .bg-gradient-to-r.from-pink-50 {
+  background: linear-gradient(to right, #1e293b, #334155) !important;
+}
+
+.dark .bg-gradient-to-r.from-indigo-50 {
+  background: linear-gradient(to right, #1e293b, #334155) !important;
+}
+
+/* Video card backgrounds in dark mode */
+.dark .bg-white.rounded-xl {
+  background-color: #334155 !important;
+  border: 1px solid #475569 !important;
+}
+
+/* Video titles and descriptions in dark mode */
+.dark .text-gray-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-gray-600 {
+  color: #cbd5e1 !important;
+}
+
+/* Games page dark mode */
+.dark .text-gray-700 {
+  color: #d1d5db !important;
+}
+
+/* Ensure proper contrast for all text in dark mode */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark p {
+  color: #d1d5db !important;
+}
+
 /* Color Theme Classes */
 .theme-blue {
   --primary-color: #5B9EEA;

@@ -1,0 +1,87 @@
+/* Games Page Dark Mode Styles */
+.dark .bg-white {
+  background-color: #1E293B !important;
+}
+
+.dark .text-gray-700 {
+  color: #d1d5db !important;
+}
+
+.dark .text-gray-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-gray-600 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-gray-500 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+/* Ensure game titles are visible in dark mode */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important;
+}
+
+/* Game description text in dark mode */
+.dark p {
+  color: #d1d5db !important;
+}
+
+/* Game card backgrounds in dark mode */
+.dark .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #475569 !important;
+}
+
+.dark .border-gray-300 {
+  border-color: #475569 !important;
+}
+
+.dark .shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2) !important;
+}
+
+.dark .shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.3), 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Back to games button in dark mode */
+.dark .btn-primary {
+  background-color: #5B9EEA !important;
+  color: white !important;
+}
+
+.dark .btn-primary:hover {
+  background-color: #4a8dd9 !important;
+}
+
+/* Game card hover effects in dark mode */
+.dark .hover\:shadow-lg:hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+}
+
