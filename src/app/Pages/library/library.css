@@ -20,6 +20,7 @@
   background-color: #334155 !important;
   border: 1px solid #475569 !important;
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.2) !important;
+  color: #e5e7eb !important;
 }
 
 .dark .bg-white.rounded-xl.shadow-lg:hover {
@@ -37,6 +38,19 @@
 
 .dark .text-gray-700 {
   color: #d1d5db !important;
+}
+
+.dark .text-black {
+  color: #f1f5f9 !important;
+}
+
+/* Ensure all headings are visible */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark p, .dark span, .dark div {
+  color: inherit;
 }
 
 /* Responsive video embeds */

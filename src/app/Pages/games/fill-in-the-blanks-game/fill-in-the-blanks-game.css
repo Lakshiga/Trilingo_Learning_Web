@@ -2,9 +2,14 @@
 
 .dark .bg-white {
   background-color: #1E293B !important;
+  color: #e5e7eb !important;
 }
 
 .dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-black {
   color: #f1f5f9 !important;
 }
 
@@ -36,6 +41,10 @@
   border-color: #475569 !important;
 }
 
+.dark .border-gray-200 {
+  border-color: #475569 !important;
+}
+
 .dark .text-slate-500 {
   color: #cbd5e1 !important;
 }
@@ -64,11 +73,16 @@
   color: #fbbf24 !important;
 }
 
-.dark .border-gray-200 {
-  border-color: #475569 !important;
-}
-
 .dark .bg-gradient-to-br {
   background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+}
+
+/* Ensure all headings and text are visible */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark p, .dark span, .dark div {
+  color: inherit;
 }
 

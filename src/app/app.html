@@ -1,5 +1,33 @@
 <app-navbar></app-navbar>
 
+<!-- Persistent bubble rain overlay (keeps animating across route changes) -->
+<div class="bubble-rain" aria-hidden="true">
+  <span style="--x:2%;  --size:72px; --bubble-color: rgba(91,158,234,0.85);  --bubble-duration: 12s; --delay: 0s;"></span>
+  <span style="--x:6%;  --size:40px; --bubble-color: rgba(255,213,79,0.85);  --bubble-duration: 10s; --delay: .6s;"></span>
+  <span style="--x:10%; --size:80px; --bubble-color: rgba(37,201,0,0.85);    --bubble-duration: 13s; --delay: 1.2s;"></span>
+  <span style="--x:14%; --size:50px; --bubble-color: rgba(179,157,219,0.85);  --bubble-duration: 11s; --delay: 1.8s;"></span>
+  <span style="--x:18%; --size:70px; --bubble-color: rgba(255,138,101,0.85);  --bubble-duration: 14s; --delay: 2.4s;"></span>
+  <span style="--x:22%; --size:55px; --bubble-color: rgba(46,213,115,0.85);   --bubble-duration: 12s; --delay: 3s;"></span>
+  <span style="--x:26%; --size:75px; --bubble-color: rgba(94,234,212,0.85);   --bubble-duration: 11.5s; --delay: 3.6s;"></span>
+  <span style="--x:30%; --size:42px; --bubble-color: rgba(244,114,182,0.85);  --bubble-duration: 10.5s; --delay: 4.2s;"></span>
+  <span style="--x:34%; --size:60px; --bubble-color: rgba(59,130,246,0.85);   --bubble-duration: 12.5s; --delay: 4.8s;"></span>
+  <span style="--x:38%; --size:50px; --bubble-color: rgba(234,88,12,0.85);   --bubble-duration: 10.8s; --delay: 5.4s;"></span>
+  <span style="--x:42%; --size:36px; --bubble-color: rgba(99,102,241,0.85);   --bubble-duration: 11.2s; --delay: 6s;"></span>
+  <span style="--x:46%; --size:44px; --bubble-color: rgba(16,185,129,0.85);   --bubble-duration: 12.8s; --delay: 6.6s;"></span>
+  <span style="--x:50%; --size:66px; --bubble-color: rgba(244,63,94,0.85);    --bubble-duration: 13.2s; --delay: 7.2s;"></span>
+  <span style="--x:54%; --size:40px; --bubble-color: rgba(234,179,8,0.85);    --bubble-duration: 10.2s; --delay: 7.8s;"></span>
+  <span style="--x:58%; --size:58px; --bubble-color: rgba(147,51,234,0.85);   --bubble-duration: 11.6s; --delay: 8.4s;"></span>
+  <span style="--x:62%; --size:72px; --bubble-color: rgba(91,158,234,0.85);   --bubble-duration: 12.4s; --delay: 9s;"></span>
+  <span style="--x:66%; --size:48px; --bubble-color: rgba(255,213,79,0.85);   --bubble-duration: 10.6s; --delay: 9.6s;"></span>
+  <span style="--x:70%; --size:84px; --bubble-color: rgba(37,201,0,0.85);     --bubble-duration: 13.6s; --delay: 10.2s;"></span>
+  <span style="--x:74%; --size:52px; --bubble-color: rgba(179,157,219,0.85);  --bubble-duration: 11.4s; --delay: 10.8s;"></span>
+  <span style="--x:78%; --size:74px; --bubble-color: rgba(255,138,101,0.85);  --bubble-duration: 14.4s; --delay: 11.4s;"></span>
+  <span style="--x:82%; --size:56px; --bubble-color: rgba(46,213,115,0.85);   --bubble-duration: 12.2s; --delay: 12s;"></span>
+  <span style="--x:86%; --size:80px; --bubble-color: rgba(94,234,212,0.85);   --bubble-duration: 11.9s; --delay: 12.6s;"></span>
+  <span style="--x:90%; --size:44px; --bubble-color: rgba(244,114,182,0.85);  --bubble-duration: 10.9s; --delay: 13.2s;"></span>
+  <span style="--x:94%; --size:68px; --bubble-color: rgba(59,130,246,0.85);   --bubble-duration: 12.9s; --delay: 13.8s;"></span>
+  <span style="--x:98%; --size:40px; --bubble-color: rgba(234,88,12,0.85);    --bubble-duration: 10.7s; --delay: 14.4s;"></span>
+</div>
 <main class="pt-16 min-h-screen bg-gray-50">
   <router-outlet></router-outlet>
 </main>

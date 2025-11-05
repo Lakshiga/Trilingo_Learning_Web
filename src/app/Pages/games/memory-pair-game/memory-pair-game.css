@@ -43,6 +43,7 @@
 
 .dark .bg-white {
   background-color: #1E293B !important;
+  color: #e5e7eb !important;
 }
 
 .dark .text-slate-800 {
@@ -51,6 +52,10 @@
 
 .dark .text-gray-500 {
   color: #cbd5e1 !important;
+}
+
+.dark .text-black {
+  color: #f1f5f9 !important;
 }
 
 .dark .text-slate-600 {
@@ -104,3 +109,13 @@
 .dark .text-yellow-400 {
   color: #facc15 !important;
 }
+
+/* Ensure all headings and text are visible */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark p, .dark span, .dark div {
+  color: inherit;
+}
+
