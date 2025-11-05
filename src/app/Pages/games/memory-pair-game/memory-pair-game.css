@@ -38,3 +38,84 @@
   25% { transform: translateX(-5px); }
   75% { transform: translateX(5px); }
 }
+
+/* Memory Pair Game Dark Mode Styles */
+
+.dark .bg-white {
+  background-color: #1E293B !important;
+  color: #e5e7eb !important;
+}
+
+.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-gray-500 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-black {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-700 {
+  color: #e2e8f0 !important;
+}
+
+.dark .bg-white\/90 {
+  background-color: rgba(30, 41, 59, 0.9) !important;
+}
+
+.dark .text-transparent {
+  color: transparent !important;
+}
+
+.dark .bg-gradient-to-r {
+  background-image: linear-gradient(to right, #60a5fa, #818cf8) !important;
+}
+
+.dark .from-blue-600 {
+  --tw-gradient-from: #60a5fa !important;
+}
+
+.dark .to-indigo-600 {
+  --tw-gradient-to: #818cf8 !important;
+}
+
+.dark .border {
+  border-color: #475569 !important;
+}
+
+.dark .text-blue-500 {
+  color: #60a5fa !important;
+}
+
+.dark .text-indigo-500 {
+  color: #818cf8 !important;
+}
+
+.dark .text-red-500 {
+  color: #f87171 !important;
+}
+
+.dark .text-green-500 {
+  color: #4ade80 !important;
+}
+
+.dark .text-yellow-400 {
+  color: #facc15 !important;
+}
+
+/* Ensure all headings and text are visible */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark p, .dark span, .dark div {
+  color: inherit;
+}
+

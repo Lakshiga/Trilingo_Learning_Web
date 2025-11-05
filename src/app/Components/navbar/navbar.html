@@ -20,11 +20,11 @@
         {{ 'NAV.HOME' | translate }}
       </a>
       <a 
-        routerLink="/features" 
+        routerLink="/library" 
         routerLinkActive="text-white border-b-2 border-white" 
         class="text-white hover:text-gray-100"
       >
-        {{ 'NAV.FEATURES' | translate }}
+      {{ 'NAV.LIBRARY' | translate }}
       </a>
       <a 
         routerLink="/games" 
@@ -176,7 +176,7 @@
       <!-- Navigation Links -->
       <nav class="p-4 space-y-2">
         <a routerLink="/" [routerLinkActiveOptions]="{ exact: true }" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.HOME' | translate }}</a>
-        <a routerLink="/features" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.FEATURES' | translate }}</a>
+        <a routerLink="/library" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.LIBRARY' | translate }}</a>
         <a routerLink="/games" routerLinkActive="bg-white/15 font-bold" (click)="toggleMenu()" class="block px-3 py-2 rounded hover:bg-white/10 text-white">{{ 'NAV.GAMES' | translate }}</a>
       </nav>
       
@@ -191,38 +191,30 @@
         
         <!-- Color Theme Picker -->
         <div class="mb-4">
-          <label class="block text-sm font-semibold text-white mb-3">{{ 'UI.CHOOSE_THEME_COLOR' | translate }}</label>
-          <div class="grid grid-cols-5 gap-3">
-            <button (click)="setTheme('blue')" 
-                    class="w-12 h-12 rounded-full bg-[#5B9EEA] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
-                    [class.border-white]="currentTheme === 'blue'"
-                    [class.ring-2]="currentTheme === 'blue'"
-                    [class.ring-white]="currentTheme === 'blue'">
-            </button>
-            <button (click)="setTheme('yellow')" 
-                    class="w-12 h-12 rounded-full bg-[#FFD54F] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
-                    [class.border-white]="currentTheme === 'yellow'"
-                    [class.ring-2]="currentTheme === 'yellow'"
-                    [class.ring-white]="currentTheme === 'yellow'">
-            </button>
-            <button (click)="setTheme('green')" 
-                    class="w-12 h-12 rounded-full bg-[#25c900] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
-                    [class.border-white]="currentTheme === 'green'"
-                    [class.ring-2]="currentTheme === 'green'"
-                    [class.ring-white]="currentTheme === 'green'">
-            </button>
-            <button (click)="setTheme('purple')" 
-                    class="w-12 h-12 rounded-full bg-[#B39DDB] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
-                    [class.border-white]="currentTheme === 'purple'"
-                    [class.ring-2]="currentTheme === 'purple'"
-                    [class.ring-white]="currentTheme === 'purple'">
-            </button>
-            <button (click)="setTheme('orange')" 
-                    class="w-12 h-12 rounded-full bg-[#FF8A65] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-white/30 hover:border-white"
-                    [class.border-white]="currentTheme === 'orange'"
-                    [class.ring-2]="currentTheme === 'orange'"
-                    [class.ring-white]="currentTheme === 'orange'">
-            </button>
+          <label for="theme-select" class="block text-sm font-semibold text-white mb-3">
+            {{ 'UI.CHOOSE_THEME_COLOR' | translate }}
+          </label>
+          
+          <div class="relative">
+            <!-- #themeSelector என்ற reference variable இங்கே சேர்க்கப்பட்டுள்ளது -->
+            <select #themeSelector
+                    id="theme-select"
+                    (change)="setTheme(themeSelector.value)"
+                    [value]="currentTheme"
+                    class="appearance-none w-full bg-gray-700 border-2 border-white/30 text-white py-3 px-4 pr-8 rounded-lg leading-tight focus:outline-none focus:bg-gray-600 focus:border-white transition-all duration-300">
+              <option value="blue">Blue</option>
+              <option value="yellow">Yellow</option>
+              <option value="green">Green</option>
+              <option value="purple">Purple</option>
+              <option value="orange">Orange</option>
+            </select>
+            
+            <!-- Custom dropdown arrow -->
+            <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-white">
+              <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
+              </svg>
+            </div>
           </div>
         </div>
         

@@ -86,22 +86,6 @@
         </button>
       </div>
 
-      <!-- Debug Info (remove in production) -->
-      <div class="mt-4 p-3 bg-gray-100 rounded-lg text-xs">
-        <p><strong>Debug Info:</strong></p>
-        <p>Status: {{ status }}</p>
-        <p>Supported: {{ isSupported }}</p>
-        <p>Recognition: {{ isRecognitionInitialized ? 'Initialized' : 'Not initialized' }}</p>
-        <p>Current Language: {{ currentLang }}</p>
-        <p>Language Code: {{ currentLanguageData.langCode }}</p>
-        <button 
-          (click)="reinitializeSpeechRecognition()"
-          class="mt-2 px-3 py-1 bg-blue-500 text-white rounded text-xs hover:bg-blue-600"
-        >
-          Reinitialize Speech Recognition
-        </button>
-      </div>
-
       <!-- Browser Support Warning -->
       <div *ngIf="!isSupported" class="mt-8 p-4 bg-red-50 border border-red-200 rounded-lg">
         <p class="text-sm text-red-600 text-center">

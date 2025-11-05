@@ -1,0 +1,88 @@
+/* Fill in the Blanks Game Dark Mode Styles */
+
+.dark .bg-white {
+  background-color: #1E293B !important;
+  color: #e5e7eb !important;
+}
+
+.dark .text-slate-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-black {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-sky-600 {
+  color: #7dd3fc !important;
+}
+
+.dark .text-sky-800 {
+  color: #bae6fd !important;
+}
+
+.dark .bg-sky-50 {
+  background-color: #0c4a6e !important;
+}
+
+.dark .bg-sky-100 {
+  background-color: #075985 !important;
+}
+
+.dark .bg-slate-100 {
+  background-color: #334155 !important;
+}
+
+.dark .bg-slate-50 {
+  background-color: #1e293b !important;
+}
+
+.dark .border-slate-300 {
+  border-color: #475569 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #475569 !important;
+}
+
+.dark .text-slate-500 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-slate-600 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-green-700 {
+  color: #86efac !important;
+}
+
+.dark .text-red-700 {
+  color: #fca5a5 !important;
+}
+
+.dark .bg-green-100 {
+  background-color: #064e3b !important;
+}
+
+.dark .bg-red-100 {
+  background-color: #7f1d1d !important;
+}
+
+.dark .text-amber-500 {
+  color: #fbbf24 !important;
+}
+
+.dark .bg-gradient-to-br {
+  background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+}
+
+/* Ensure all headings and text are visible */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark p, .dark span, .dark div {
+  color: inherit;
+}
+

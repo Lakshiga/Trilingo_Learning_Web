@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, inject } from '@angular/core';
+import { Component, OnInit, OnDestroy, inject, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
 import { RouterModule } from '@angular/router';
@@ -50,6 +50,7 @@ type GameStatus = 'idle' | 'listening' | 'checking' | 'match' | 'mismatch' | 'er
 })
 export class VoiceRepeatGame implements OnInit, OnDestroy {
   private translateService = inject(TranslateService);
+  private ngZone = inject(NgZone);
 
   // Game state
   targetIndex: number = 0;
@@ -110,36 +111,71 @@ isRecognitionInitialized: any;
     }
 
     this.recognition.onresult = (event: any) => {
-      const result = event.results[0];
-      const spokenText = result[0].transcript;
-      
-      // Show interim results immediately for faster feedback
-      this.transcript = spokenText;
-      
-      // Only process final results
-      if (result.isFinal) {
-        this.status = 'checking';
-        this.compareWords(spokenText, this.targetWord.word);
-        // Stop recognition immediately after getting final result
-        this.recognition.stop();
-      }
+      // Run inside Angular zone to ensure change detection
+      this.ngZone.run(() => {
+        // Get the last result from the results array
+        const resultIndex = event.results.length - 1;
+        const result = event.results[resultIndex];
+        const spokenText = result[0].transcript.trim();
+        
+        // Show interim results immediately for faster feedback
+        this.transcript = spokenText;
+        
+        // Only process final results
+        if (result.isFinal) {
+          // Clear timeout since we got a result
+          if (this.speechTimeout) {
+            clearTimeout(this.speechTimeout);
+            this.speechTimeout = null;
+          }
+          
+          // Set status to checking first
+          this.status = 'checking';
+          
+          // Process the result immediately - this will update status to match/mismatch
+          this.compareWords(spokenText, this.targetWord.word);
+          
+          // Stop recognition after processing
+          try {
+            this.recognition.stop();
+          } catch (e) {
+            // Ignore errors if already stopped
+          }
+        }
+      });
     };
 
     this.recognition.onend = () => {
-      // Clear the timeout when recognition ends
-      if (this.speechTimeout) {
-        clearTimeout(this.speechTimeout);
-        this.speechTimeout = null;
-      }
-      
-      if (this.status === 'listening' || this.status === 'checking') {
-        this.status = 'idle';
-      }
+      // Run inside Angular zone to ensure change detection
+      this.ngZone.run(() => {
+        // Clear the timeout when recognition ends
+        if (this.speechTimeout) {
+          clearTimeout(this.speechTimeout);
+          this.speechTimeout = null;
+        }
+        
+        // Don't change status if we already have a final result (match, mismatch, or error)
+        // Only handle if we're still in listening or checking state
+        if (this.status === 'listening') {
+          // If we were listening but never got a final result, it might be an error
+          if (!this.transcript) {
+            this.status = 'error';
+            this.resultMessage = this.translateService.instant('GAME.VOICE_REPEAT.ERROR_NO_SPEECH');
+          }
+          // If we have a transcript but no final result, keep status as-is
+          // The result processing should have already happened in onresult
+        }
+        // If status is 'checking', 'match', 'mismatch', or 'error', don't change it
+        // These are final states that should persist
+      });
     };
 
     this.recognition.onerror = (event: any) => {
-      this.status = 'error';
-      this.handleSpeechError(event.error);
+      // Run inside Angular zone to ensure change detection
+      this.ngZone.run(() => {
+        this.status = 'error';
+        this.handleSpeechError(event.error);
+      });
     };
   }
 
@@ -153,12 +189,13 @@ isRecognitionInitialized: any;
                    target.includes(spoken) ||
                    this.calculateSimilarity(spoken, target) > 0.7;
 
+    // Process result immediately - don't use setTimeout as it can cause timing issues
     if (isMatch) {
       this.status = 'match';
-      this.resultMessage = this.translateService.instant('GAME.VOICE_REPEAT.CORRECT') + ' "' + spokenText + '"';
+      this.resultMessage = this.translateService.instant('GAME.VOICE_REPEAT.CORRECT') + ' "' + spokenText.trim() + '"';
     } else {
       this.status = 'mismatch';
-      this.resultMessage = this.translateService.instant('GAME.VOICE_REPEAT.INCORRECT') + ' "' + spokenText + '" ' + 
+      this.resultMessage = this.translateService.instant('GAME.VOICE_REPEAT.INCORRECT') + ' "' + spokenText.trim() + '" ' + 
                           this.translateService.instant('GAME.VOICE_REPEAT.BUT_TARGET') + ' "' + targetWord + '"';
     }
   }
@@ -251,15 +288,19 @@ isRecognitionInitialized: any;
       
       console.log('Starting speech recognition...');
       
-      // Set a timeout to stop listening after 5 seconds
+      // Set a timeout to stop listening after 8 seconds (increased for better UX)
       this.speechTimeout = setTimeout(() => {
         if (this.status === 'listening') {
           console.log('Speech recognition timeout');
-          this.recognition.stop();
+          try {
+            this.recognition.stop();
+          } catch (e) {
+            // Ignore if already stopped
+          }
           this.status = 'error';
           this.resultMessage = this.translateService.instant('GAME.VOICE_REPEAT.ERROR_NO_SPEECH');
         }
-      }, 5000);
+      }, 8000);
       
       // Update language before starting
       this.recognition.lang = this.currentLanguageData.langCode;

@@ -185,3 +185,87 @@ button:focus {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
 }
+
+/* Voice Repeat Game Dark Mode Styles */
+
+.dark .bg-white {
+  background-color: #1E293B !important;
+  color: #e5e7eb !important;
+}
+
+.dark .text-gray-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-gray-600 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-gray-500 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-black {
+  color: #f1f5f9 !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #334155 !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: #475569 !important;
+}
+
+.dark .bg-gray-300 {
+  background-color: #475569 !important;
+}
+
+.dark .bg-gray-400 {
+  background-color: #64748b !important;
+}
+
+.dark .bg-gray-600 {
+  background-color: #475569 !important;
+}
+
+.dark .bg-gray-700 {
+  background-color: #334155 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #475569 !important;
+}
+
+.dark .border-primary {
+  border-color: #5B9EEA !important;
+}
+
+.dark .bg-red-50 {
+  background-color: #7f1d1d !important;
+}
+
+.dark .border-red-200 {
+  border-color: #991b1b !important;
+}
+
+.dark .text-red-600 {
+  color: #fca5a5 !important;
+}
+
+.dark .bg-blue-500 {
+  background-color: #3b82f6 !important;
+}
+
+.dark .bg-blue-600 {
+  background-color: #2563eb !important;
+}
+
+/* Ensure all headings and text are visible */
+.dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+  color: #f1f5f9 !important;
+}
+
+.dark p, .dark span, .dark div {
+  color: inherit;
+}
