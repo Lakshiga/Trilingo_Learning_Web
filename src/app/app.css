@@ -39,3 +39,53 @@
   .bubble-rain span { box-shadow: 0 6px 16px rgba(0,0,0,0.22); }
 }
 
+/* Feature Card Flip Animation */
+.feature-card-container {
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.feature-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.7s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem; /* 16px */
+}
+
+.feature-card-container.is-flipped .feature-card-inner {
+  transform: rotateY(180deg);
+}
+
+.feature-card-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; /* Safari */
+  backface-visibility: hidden;
+  border-radius: 1rem; /* 16px */
+}
+
+.feature-card-back {
+  transform: rotateY(180deg);
+  /* Enhanced styling for the back of the card */
+  background: linear-gradient(135deg, #60a5fa, #818cf8); /* A friendly blue gradient */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  color: white;
+  text-align: center;
+}
+
+.dark .feature-card-back {
+    background: linear-gradient(135deg, #3b82f6, #6366f1); /* Darker gradient for dark mode */
+}
+
+.feature-card-back .flip-icon {
+  font-size: 2rem; /* Larger icon */
+  margin-bottom: 0.75rem;
+}

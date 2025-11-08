@@ -2,8 +2,8 @@
 
 /* Color System Variables */
 :root {
-  --primary-color: #5B9EEA;
-  --secondary-color: #FFD54F;
+  --primary-color: #3B82F6;
+  --secondary-color: #ecc43f;
   --accent-color: #25c900;
   --highlight-color: #B39DDB;
   --warning-color: #FF8A65;
@@ -127,7 +127,8 @@
 
 /* Footer separator in dark mode */
 .dark footer {
-  border-top: 2px solid #374151 !important;
+  background-color: #14060f !important;
+  border-top: 2px solid #86a8e0 !important;
 }
 
 /* Images not inverted */

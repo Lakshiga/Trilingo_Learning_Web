@@ -1,15 +1,15 @@
 <!-- 🌟 Hero Section -->
-<section class="relative flex flex-col md:flex-row items-center justify-between px-8 md:px-20 pt-8 pb-16 bg-white overflow-hidden">
+<section class="relative z-10 flex flex-col md:flex-row items-center justify-between px-8 md:px-20 pt-8 pb-16 overflow-hidden">
   
   <!-- Left Text -->
-  <div class="text-center md:text-left max-w-xl space-y-4 z-10">
-    <h1 class="text-5xl md:text-6xl font-extrabold text-primary">
+  <div class="text-center md:text-left max-w-xl space-y-4 z-10 [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
+    <h1 class="text-5xl md:text-6xl font-extrabold text-primary [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">
       {{ 'HOME.HERO.TITLE' | translate }}
     </h1>
     <p class="text-gray-700 text-lg md:text-xl font-medium leading-relaxed">
       {{ 'HOME.HERO.SUBTITLE' | translate }}
     </p>
-    <div class="mt-8 flex justify-center md:justify-start space-x-4">
+    <div class="mt-8 flex justify-center md:justify-start space-x-4 [text-shadow:none]">
       <button class="btn-primary font-bold px-6 py-3 rounded-full shadow-md transition duration-300">
         {{ 'HOME.HERO.DOWNLOAD_APP' | translate }}
       </button>
@@ -32,23 +32,23 @@
 
 
 <!-- 🧠 Features Section -->
-<section class="py-20 bg-white text-center">
-  <h2 class="text-4xl font-bold text-primary mb-10">{{ 'HOME.FEATURES.TITLE' | translate }}</h2>
+<section class="relative z-10 py-20 text-center [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
+  <h2 class="text-4xl font-bold text-primary mb-10 [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'HOME.FEATURES.TITLE' | translate }}</h2>
 
   <div class="grid grid-cols-1 md:grid-cols-3 gap-10 px-8 md:px-20">
-    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition">
+    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition [text-shadow:none]">
       <img src="assets/images/cat-study.png" alt="Cat Studying" class="w-44 mx-auto mb-6 drop-shadow-xl">
       <h3 class="text-2xl font-semibold text-primary">{{ 'HOME.FEATURES.PLAY_LEARN.TITLE' | translate }}</h3>
       <p class="text-gray-600 mt-2">{{ 'HOME.FEATURES.PLAY_LEARN.DESCRIPTION' | translate }}</p>
     </div>
 
-    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition">
+    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition [text-shadow:none]">
       <img src="assets/images/cat-mascot.png" alt="Cat Mascot" class="w-44 mx-auto mb-6 drop-shadow-xl">
       <h3 class="text-2xl font-semibold text-warning">{{ 'HOME.FEATURES.FRIENDLY_MASCOT.TITLE' | translate }}</h3>
       <p class="text-gray-600 mt-2">{{ 'HOME.FEATURES.FRIENDLY_MASCOT.DESCRIPTION' | translate }}</p>
     </div>
 
-    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition">
+    <div class="p-6 bg-white border border-gray-100 rounded-2xl shadow-lg hover:scale-105 transition [text-shadow:none]">
       <img src="assets/images/cat-nature.png" alt="Cat Reading" class="w-44 mx-auto mb-6 drop-shadow-xl">
       <h3 class="text-2xl font-semibold text-accent">{{ 'HOME.FEATURES.PEACEFUL_LEARNING.TITLE' | translate }}</h3>
       <p class="text-gray-600 mt-2">{{ 'HOME.FEATURES.PEACEFUL_LEARNING.DESCRIPTION' | translate }}</p>
@@ -57,13 +57,13 @@
 </section>
 
 <!-- 🌟 Features Section (Detailed) -->
-<section class="bg-white py-24 space-y-32">
+<section class="relative z-10 py-24 space-y-32 [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
 
   <!-- 🧠 AI Tutor -->
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center px-8 md:px-20 gap-12">
     <img src="assets/images/ai-tutor.png" alt="AI Tutor" class="w-72 md:w-[400px] drop-shadow-xl animate-float">
     <div class="text-center md:text-left space-y-5">
-      <h2 class="text-4xl font-extrabold text-warning">{{ 'FEATURES.AI_TUTOR.TITLE' | translate }}</h2>
+      <h2 class="text-4xl font-extrabold text-warning [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'FEATURES.AI_TUTOR.TITLE' | translate }}</h2>
       <p class="text-gray-700 text-lg leading-relaxed">
         {{ 'FEATURES.AI_TUTOR.DESCRIPTION' | translate }}
       </p>
@@ -74,7 +74,7 @@
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center px-8 md:px-20 gap-12">
     <img src="assets/images/game-fun.png" alt="Learning Games" class="w-72 md:w-[400px] drop-shadow-xl animate-bounce-slow">
     <div class="text-center md:text-left space-y-5">
-      <h2 class="text-4xl font-extrabold text-primary">{{ 'FEATURES.LEARNING_GAMES.TITLE' | translate }}</h2>
+      <h2 class="text-4xl font-extrabold text-primary [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'FEATURES.LEARNING_GAMES.TITLE' | translate }}</h2>
       <p class="text-gray-700 text-lg leading-relaxed">
         {{ 'FEATURES.LEARNING_GAMES.DESCRIPTION' | translate }}
       </p>
@@ -85,7 +85,7 @@
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center px-8 md:px-20 gap-12">
     <img src="assets/images/rewards.png" alt="Progress Rewards" class="w-72 md:w-[400px] drop-shadow-xl animate-pulse-slow">
     <div class="text-center md:text-left space-y-5">
-      <h2 class="text-4xl font-extrabold text-accent">{{ 'FEATURES.PROGRESS_REWARDS.TITLE' | translate }}</h2>
+      <h2 class="text-4xl font-extrabold text-accent [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'FEATURES.PROGRESS_REWARDS.TITLE' | translate }}</h2>
       <p class="text-gray-700 text-lg leading-relaxed">
         {{ 'FEATURES.PROGRESS_REWARDS.DESCRIPTION' | translate }}
       </p>
@@ -96,7 +96,7 @@
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row-reverse items-center px-8 md:px-20 gap-12">
     <img src="assets/images/languages.png" alt="Multilingual" class="w-72 md:w-[400px] drop-shadow-xl animate-float">
     <div class="text-center md:text-left space-y-5">
-      <h2 class="text-4xl font-extrabold text-warning">{{ 'FEATURES.MULTILINGUAL.TITLE' | translate }}</h2>
+      <h2 class="text-4xl font-extrabold text-warning [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'FEATURES.MULTILINGUAL.TITLE' | translate }}</h2>
       <p class="text-gray-700 text-lg leading-relaxed">
         {{ 'FEATURES.MULTILINGUAL.DESCRIPTION' | translate }}
       </p>
@@ -105,12 +105,12 @@
 </section>
 
 <!-- 🌈 Bottom Call-to-Action -->
-<section class="py-20 bg-white text-center border-t border-gray-100">
-  <h2 class="text-4xl font-extrabold text-primary mb-6">{{ 'HOME.CTA.TITLE' | translate }}</h2>
+<section class="relative z-10 py-20 text-center [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
+  <h2 class="text-4xl font-extrabold text-primary mb-6 [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'HOME.CTA.TITLE' | translate }}</h2>
   <p class="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
     {{ 'HOME.CTA.DESCRIPTION' | translate }}
   </p>
-  <div class="flex justify-center space-x-6">
+  <div class="flex justify-center space-x-6 [text-shadow:none]">
     <button class="btn-primary px-8 py-3 font-bold rounded-full shadow-md transition">
       {{ 'HOME.CTA.PLAY_STORE' | translate }}
     </button>
