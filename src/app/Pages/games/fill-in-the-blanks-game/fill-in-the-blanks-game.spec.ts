@@ -1,18 +1,17 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { FillInTheBlanksGame } from './fill-in-the-blanks-game';
+import { FillInTheBlankGame } from './fill-in-the-blanks-game';
 
 describe('FillInTheBlanksGame', () => {
-  let component: FillInTheBlanksGame;
-  let fixture: ComponentFixture<FillInTheBlanksGame>;
+  let component: FillInTheBlankGame;
+  let fixture: ComponentFixture<FillInTheBlankGame>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FillInTheBlanksGame]
+      imports: [FillInTheBlankGame]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FillInTheBlanksGame);
+    fixture = TestBed.createComponent(FillInTheBlankGame);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
