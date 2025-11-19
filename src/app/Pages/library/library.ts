@@ -1,88 +1,34 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-
-
-declare global {
-  interface Window {
-    onYouTubeIframeAPIReady: () => void;
-    YT: any;
-  }
-}
+import { VideoCardComponent } from '../../videocard/videocard'; 
 
 @Component({
   selector: 'app-library',
   standalone: true,
-  imports: [TranslateModule],
+  imports: [TranslateModule, CommonModule, VideoCardComponent],
   templateUrl: './library.html',
-  styleUrl: './library.css'
+  styleUrls: ['./library.css']
 })
-export class Library implements OnInit, OnDestroy {
-  private players: { [key: string]: any } = {};
-  private allVideoIds = [
-    'tamil-video-1', 'tamil-video-2', 'tamil-video-3',
-    'sinhala-video-1', 'sinhala-video-2', 'sinhala-video-3',
-    'english-video-1', 'english-video-2', 'english-video-3'
+export class Library {
+
+  // KEEP your original translate keys here so nothing in translations changes
+  tamilVideos = [
+    { id: 'QNYB7Tsb880', title: 'LIBRARY.TAMIL_VIDEO_1.TITLE', description: 'LIBRARY.TAMIL_VIDEO_1.DESCRIPTION' },
+    { id: 'hVajuTFFqKA', title: 'LIBRARY.TAMIL_VIDEO_2.TITLE', description: 'LIBRARY.TAMIL_VIDEO_2.DESCRIPTION' },
+    { id: 'EaRl0KZNEdQ', title: 'LIBRARY.TAMIL_VIDEO_3.TITLE', description: 'LIBRARY.TAMIL_VIDEO_3.DESCRIPTION' }
   ];
 
-  ngOnInit() {
-    this.loadYouTubeAPI();
-  }
+  sinhalaVideos = [
+    { id: '3idE6NKcPDA', title: 'LIBRARY.SINHALA_VIDEO_1.TITLE', description: 'LIBRARY.SINHALA_VIDEO_1.DESCRIPTION' },
+    { id: 'w8b1-60UZZk', title: 'LIBRARY.SINHALA_VIDEO_2.TITLE', description: 'LIBRARY.SINHALA_VIDEO_2.DESCRIPTION' },
+    { id: 'NLUW7LrcU48', title: 'LIBRARY.SINHALA_VIDEO_3.TITLE', description: 'LIBRARY.SINHALA_VIDEO_3.DESCRIPTION' }
+  ];
 
-  ngOnDestroy() {
-    // Clean up players
-    Object.values(this.players).forEach((player: any) => {
-      if (player && player.destroy) {
-        player.destroy();
-      }
-    });
-  }
+  englishVideos = [
+    { id: 'ccEpTTZW34g', title: 'LIBRARY.ENGLISH_VIDEO_1.TITLE', description: 'LIBRARY.ENGLISH_VIDEO_1.DESCRIPTION' },
+    { id: 'XqZsoesa55w', title: 'LIBRARY.ENGLISH_VIDEO_2.TITLE', description: 'LIBRARY.ENGLISH_VIDEO_2.DESCRIPTION' },
+    { id: 'Zu6o23Pu0Do', title: 'LIBRARY.ENGLISH_VIDEO_3.TITLE', description: 'LIBRARY.ENGLISH_VIDEO_3.DESCRIPTION' }
+  ];
 
-  private loadYouTubeAPI() {
-    if (window.YT && window.YT.Player) {
-      this.initializePlayers();
-    } else {
-      // Load YouTube API
-      const tag = document.createElement('script');
-      tag.src = 'https://www.youtube.com/iframe_api';
-      const firstScriptTag = document.getElementsByTagName('script')[0];
-      firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag);
-
-      window.onYouTubeIframeAPIReady = () => {
-        this.initializePlayers();
-      };
-    }
-  }
-
-  private initializePlayers() {
-    this.allVideoIds.forEach(videoId => {
-      const iframe = document.getElementById(videoId) as HTMLIFrameElement;
-      if (iframe) {
-        this.players[videoId] = new window.YT.Player(videoId, {
-          events: {
-            'onStateChange': (event: any) => this.onPlayerStateChange(event, videoId)
-          }
-        });
-      }
-    });
-  }
-
-  private onPlayerStateChange(event: any, currentVideoId: string) {
-    // If a video starts playing (state = 1), pause all other videos
-    if (event.data === 1) { // Playing state
-      this.pauseAllOtherVideos(currentVideoId);
-    }
-  }
-
-  private pauseAllOtherVideos(currentVideoId: string) {
-    this.allVideoIds.forEach(videoId => {
-      if (videoId !== currentVideoId && this.players[videoId]) {
-        try {
-          this.players[videoId].pauseVideo();
-        } catch (error) {
-          console.log('Could not pause video:', videoId);
-        }
-      }
-    });
-  }
 }

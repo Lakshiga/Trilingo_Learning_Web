@@ -2,7 +2,7 @@
 
 /* Color System Variables */
 :root {
-  --primary-color: #3B82F6;
+  --primary-color: rgb(53, 57, 165);
   --secondary-color: #ecc43f;
   --accent-color: #25c900;
   --highlight-color: #B39DDB;

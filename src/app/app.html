@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 
 <!-- Persistent bubble rain overlay (keeps animating across route changes) -->
-<div class="bubble-rain" aria-hidden="true">
+<div class="bubble-rain fixed top-0 left-0 w-full h-full -z-10" aria-hidden="true">
   <span style="--x:2%;  --size:72px; --bubble-color: #0f05a0d9;  --bubble-duration: 12s; --delay: 0s;"></span>
   <span style="--x:6%;  --size:40px; --bubble-color: rgba(255,213,79,0.85);  --bubble-duration: 10s; --delay: .6s;"></span>
   <span style="--x:10%; --size:80px; --bubble-color: rgba(40, 141, 17, 0.85);    --bubble-duration: 13s; --delay: 1.2s;"></span>
@@ -29,6 +29,7 @@
   <span style="--x:98%; --size:40px; --bubble-color: rgba(234,88,12,0.85);    --bubble-duration: 10.7s; --delay: 14.4s;"></span>
 </div>
 <main class="pt-16 min-h-screen bg-gray-50">
+
   <router-outlet></router-outlet>
 </main>
 

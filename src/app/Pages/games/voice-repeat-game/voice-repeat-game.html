@@ -1,5 +1,5 @@
 <!-- Voice Repeat Game -->
-<div class="p-4 bg-white">
+<div class="relative z-10 p-4 bg-white">
   <a routerLink="/games"
      class="inline-block btn-primary px-4 py-2 rounded-full shadow hover:shadow-md transition">
      {{ 'GAME.BACK_TO_GAMES' | translate }}
@@ -10,13 +10,13 @@
   <div class="max-w-4xl mx-auto px-4">
     
     <!-- Header -->
-    <div class="text-center mb-8">
+    <div class="relative z-10 text-center mb-8">
       <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ 'GAME.VOICE_REPEAT.TITLE' | translate }}</h1>
       <p class="text-lg text-gray-600">{{ 'GAME.VOICE_REPEAT.DESCRIPTION' | translate }}</p>
     </div>
 
     <!-- Game Container -->
-    <div class="bg-white rounded-2xl shadow-xl border-2 border-gray-200 p-8">
+    <div class="relative z-10 bg-white rounded-2xl shadow-xl border-2 border-gray-200 p-8">
 
       <!-- Target Word Display -->
       <div class="text-center mb-8">
@@ -34,7 +34,7 @@
         </div>
 
         <!-- Target Word Text -->
-        <div class="bg-gray-50 p-6 rounded-xl border-2 border-primary shadow-lg">
+        <div class="relative z-10 bg-gray-50 p-6 rounded-xl border-2 border-primary shadow-lg">
           <p class="text-4xl font-black text-gray-800 tracking-wider">{{ targetWord.word }}</p>
         </div>
 
