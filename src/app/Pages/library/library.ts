@@ -12,7 +12,6 @@ import { VideoCardComponent } from '../../videocard/videocard';
 })
 export class Library {
 
-  // KEEP your original translate keys here so nothing in translations changes
   tamilVideos = [
     { id: 'QNYB7Tsb880', title: 'LIBRARY.TAMIL_VIDEO_1.TITLE', description: 'LIBRARY.TAMIL_VIDEO_1.DESCRIPTION' },
     { id: 'hVajuTFFqKA', title: 'LIBRARY.TAMIL_VIDEO_2.TITLE', description: 'LIBRARY.TAMIL_VIDEO_2.DESCRIPTION' },
