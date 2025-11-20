@@ -2,14 +2,14 @@ import { Component, OnInit, ChangeDetectionStrategy, signal, computed, inject } 
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 import { ImageItem, WordItem } from '../game_model';
 import { WordMatchService } from './word-match-service';
-import { RouterLink } from '@angular/router';
-import { TranslateModule } from '@ngx-translate/core';
 
+import { TranslateModule } from '@ngx-translate/core';
+import { BackToGamesButton } from '../../../Shared/back-to-games-button/back-to-games-button';
 
 @Component({
   selector: 'app-word-match-game',
   standalone: true,
-  imports: [CommonModule,NgOptimizedImage,RouterLink,TranslateModule],
+  imports: [CommonModule,NgOptimizedImage,TranslateModule,BackToGamesButton],
   templateUrl: './word-match-game.html',
   styleUrls: ['./word-match-game.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
