@@ -7,7 +7,36 @@
   --accent-color: #25c900;
   --highlight-color: #B39DDB;
   --warning-color: #FF8A65;
+  --purple-color: #8b5cf6;
+  --purple-color-dark: #7c3aed;
+  --primary-color-dark: #4A8DDB;
+  --dark-bg: #1E293B;
+  --dark-card-bg: #334155;
+  --dark-border: #475569;
+  --text-high: #f1f5f9;
+  --text-mid: #cbd5e1;
+  --text-low: #d1d5db;
+  --info-color: #3b82f6;
+  --info-color-dark: #1d4ed8;
+  --info-color-hover: #2563eb;
+  --info-color-darker: #1e40af;
+  --accent-warm: #f59e0b;
+  --accent-warm-dark: #d97706;
+  --accent-warm-darker: #b45309;
+  --success-color: #10b981;
+  --success-color-dark: #059669;
+  --danger-color: #ef4444;
+  --danger-color-dark: #dc2626;
+  --danger-color-darker: #b91c1c;
+  --danger-bg-dark: #7f1d1d;
+  --danger-border-dark: #991b1b;
+  --danger-light: #fca5a5;
+  --neutral-light-1: #f3f4f6;
+  --neutral-light-2: #e5e7eb;
+  --spinner-border: #f3f3f3;
 }
+
+.bg-primary-gradient { background-image: linear-gradient(to right, var(--primary-color), var(--primary-color-dark)); }
 
 /* Global dark mode overrides driven by root .dark class */
 .dark body {
@@ -403,4 +432,14 @@ nav .block:hover {
 
 .border-warning {
   border-color: var(--warning-color) !important;
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+  20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+.shake-animation {
+  animation: shake 0.5s ease-in-out;
 }

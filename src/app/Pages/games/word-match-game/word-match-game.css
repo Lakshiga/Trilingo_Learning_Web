@@ -1,44 +1,44 @@
 /* Word Match Game Dark Mode Styles */
 
 .dark .bg-white {
-  background-color: #1E293B !important;
-  color: #e5e7eb !important;
+  background-color: var(--dark-bg) !important;
+  color: var(--text-mid) !important;
 }
 
 .dark .text-gray-700 {
-  color: #d1d5db !important;
+  color: var(--text-low) !important;
 }
 
 .dark .text-gray-500 {
-  color: #cbd5e1 !important;
+  color: var(--text-mid) !important;
 }
 
 .dark .text-gray-600 {
-  color: #cbd5e1 !important;
+  color: var(--text-mid) !important;
 }
 
 .dark .text-gray-800 {
-  color: #f1f5f9 !important;
+  color: var(--text-high) !important;
 }
 
 .dark .text-black {
-  color: #f1f5f9 !important;
+  color: var(--text-high) !important;
 }
 
 .dark .bg-gray-100 {
-  background-color: #334155 !important;
+  background-color: var(--dark-card-bg) !important;
 }
 
 .dark .bg-gray-50 {
-  background-color: #1e293b !important;
+  background-color: var(--dark-bg) !important;
 }
 
 .dark .bg-gray-300 {
-  background-color: #475569 !important;
+  background-color: var(--dark-border) !important;
 }
 
 .dark .border-gray-300 {
-  border-color: #475569 !important;
+  border-color: var(--dark-border) !important;
 }
 
 .dark .text-green-600 {
@@ -79,7 +79,7 @@
 
 /* Ensure all headings and text are visible */
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: #f1f5f9 !important;
+  color: var(--text-high) !important;
 }
 
 .dark p, .dark span, .dark div {

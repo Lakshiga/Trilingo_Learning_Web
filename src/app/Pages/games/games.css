@@ -1,67 +1,46 @@
 /* Games Page Dark Mode Styles */
 
 .dark .bg-white {
-  background-color: #1E293B !important;
-  color: #e5e7eb !important;
+  background-color: var(--dark-bg) !important;
+  color: var(--text-mid) !important;
 }
 
-.dark .text-gray-700 {
-  color: #d1d5db !important;
-}
-
-.dark .text-gray-800 {
-  color: #f1f5f9 !important;
-}
-
-.dark .text-gray-600 {
-  color: #cbd5e1 !important;
-}
-
-.dark .text-gray-500 {
-  color: #cbd5e1 !important;
-}
-
-.dark .text-black {
-  color: #f1f5f9 !important;
-}
-
-.dark .text-slate-800 {
-  color: #f1f5f9 !important;
-}
-
-.dark .text-slate-600 {
-  color: #cbd5e1 !important;
-}
-
-.dark .text-slate-500 {
-  color: #cbd5e1 !important;
-}
-
+.dark .text-gray-700,
 .dark .text-slate-700 {
-  color: #e2e8f0 !important;
+  color: var(--text-low) !important;
+}
+
+.dark .text-gray-800,
+.dark .text-slate-800,
+.dark .text-black {
+  color: var(--text-high) !important;
+}
+
+.dark .text-gray-600,
+.dark .text-gray-500,
+.dark .text-slate-600,
+.dark .text-slate-500 {
+  color: var(--text-mid) !important;
 }
 
 /* Ensure game titles are visible in dark mode */
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: #f1f5f9 !important;
+  color: var(--text-high) !important;
 }
 
 /* Game description text in dark mode */
 .dark p {
-  color: #d1d5db !important;
+  color: var(--text-low) !important;
 }
 
 /* Game card backgrounds in dark mode */
 .dark .bg-gradient-to-br {
-  background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+  background: linear-gradient(to bottom right, var(--dark-bg), var(--dark-card-bg)) !important;
 }
 
-.dark .border-gray-200 {
-  border-color: #475569 !important;
-}
-
+.dark .border-gray-200,
 .dark .border-gray-300 {
-  border-color: #475569 !important;
+  border-color: var(--dark-border) !important;
 }
 
 .dark .shadow-xl {
@@ -78,12 +57,12 @@
 
 /* Back to games button in dark mode */
 .dark .btn-primary {
-  background-color: #5B9EEA !important;
+  background-color: var(--primary-color) !important;
   color: white !important;
 }
 
 .dark .btn-primary:hover {
-  background-color: #4a8dd9 !important;
+  background-color: var(--primary-color-dark) !important;
 }
 
 /* Game card hover effects in dark mode */
