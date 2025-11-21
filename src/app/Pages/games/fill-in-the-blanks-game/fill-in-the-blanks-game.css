@@ -1,16 +1,16 @@
 /* Fill in the Blanks Game Dark Mode Styles */
 
 .dark .bg-white {
-  background-color: #1E293B !important;
-  color: #e5e7eb !important;
+  background-color: var(--dark-bg) !important;
+  color: var(--text-mid) !important;
 }
 
 .dark .text-slate-800 {
-  color: #f1f5f9 !important;
+  color: var(--text-high) !important;
 }
 
 .dark .text-black {
-  color: #f1f5f9 !important;
+  color: var(--text-high) !important;
 }
 
 .dark .text-sky-600 {
@@ -30,19 +30,19 @@
 }
 
 .dark .bg-slate-100 {
-  background-color: #334155 !important;
+  background-color: var(--dark-card-bg) !important;
 }
 
 .dark .bg-slate-50 {
-  background-color: #1e293b !important;
+  background-color: var(--dark-bg) !important;
 }
 
 .dark .border-slate-300 {
-  border-color: #475569 !important;
+  border-color: var(--dark-border) !important;
 }
 
 .dark .border-gray-200 {
-  border-color: #475569 !important;
+  border-color: var(--dark-border) !important;
 }
 
 .dark .text-slate-500 {
@@ -74,12 +74,12 @@
 }
 
 .dark .bg-gradient-to-br {
-  background: linear-gradient(to bottom right, #1e293b, #334155) !important;
+  background: linear-gradient(to bottom right, var(--dark-bg), var(--dark-card-bg)) !important;
 }
 
 /* Ensure all headings and text are visible */
 .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
-  color: #f1f5f9 !important;
+  color: var(--text-high) !important;
 }
 
 .dark p, .dark span, .dark div {

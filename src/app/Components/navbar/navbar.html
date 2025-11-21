@@ -66,9 +66,7 @@
                     (click)="setLanguage(lang.code)" 
                     class="block w-full text-left px-4 py-4 text-gray-700 hover:text-white transition-all duration-200 ease-in-out hover:translate-x-1 hover:shadow-md border-b border-gray-100 last:border-b-0"
                     style="--hover-bg: var(--primary-color);"
-                    [class.bg-gradient-to-r]="lang.displayName === selectedLanguage"
-                    [class.from-[#5B9EEA]]="lang.displayName === selectedLanguage"
-                    [class.to-[#4A8DDB]]="lang.displayName === selectedLanguage"
+                    [class.bg-primary-gradient]="lang.displayName === selectedLanguage"
                     [class.text-white]="lang.displayName === selectedLanguage">
               <span class="flex items-center">
                 <span class="text-lg mr-3">🌐</span>
@@ -100,33 +98,33 @@
             <h3 class="text-sm font-semibold text-gray-700 mb-3">{{ 'UI.CHOOSE_THEME_COLOR' | translate }}</h3>
             <div class="grid grid-cols-5 gap-2">
               <button (click)="setTheme('blue')" 
-                      class="w-10 h-10 rounded-full bg-[#5B9EEA] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
+                      class="w-10 h-10 rounded-full bg-primary hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
                       [class.border-gray-800]="currentTheme === 'blue'"
-                      (mouseenter)="onColorHover($event, '#5B9EEA')"
+                      (mouseenter)="onColorHover($event, 'var(--primary-color)')"
                       (mouseleave)="onColorLeave($event, 'blue')">
               </button>
               <button (click)="setTheme('yellow')" 
-                      class="w-10 h-10 rounded-full bg-[#FFD54F] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
+                      class="w-10 h-10 rounded-full bg-secondary hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
                       [class.border-gray-800]="currentTheme === 'yellow'"
-                      (mouseenter)="onColorHover($event, '#FFD54F')"
+                      (mouseenter)="onColorHover($event, 'var(--secondary-color)')"
                       (mouseleave)="onColorLeave($event, 'yellow')">
               </button>
               <button (click)="setTheme('green')" 
-                      class="w-10 h-10 rounded-full bg-[#25c900] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
+                      class="w-10 h-10 rounded-full bg-accent hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
                       [class.border-gray-800]="currentTheme === 'green'"
-                      (mouseenter)="onColorHover($event, '#25c900')"
+                      (mouseenter)="onColorHover($event, 'var(--accent-color)')"
                       (mouseleave)="onColorLeave($event, 'green')">
               </button>
               <button (click)="setTheme('purple')" 
-                      class="w-10 h-10 rounded-full bg-[#B39DDB] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
+                      class="w-10 h-10 rounded-full bg-highlight hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
                       [class.border-gray-800]="currentTheme === 'purple'"
-                      (mouseenter)="onColorHover($event, '#B39DDB')"
+                      (mouseenter)="onColorHover($event, 'var(--highlight-color)')"
                       (mouseleave)="onColorLeave($event, 'purple')">
               </button>
               <button (click)="setTheme('orange')" 
-                      class="w-10 h-10 rounded-full bg-[#FF8A65] hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
+                      class="w-10 h-10 rounded-full bg-warning hover:scale-110 hover:shadow-lg transition-all duration-300 border-2 border-gray-200 hover:border-gray-400"
                       [class.border-gray-800]="currentTheme === 'orange'"
-                      (mouseenter)="onColorHover($event, '#FF8A65')"
+                      (mouseenter)="onColorHover($event, 'var(--warning-color)')"
                       (mouseleave)="onColorLeave($event, 'orange')">
               </button>
             </div>

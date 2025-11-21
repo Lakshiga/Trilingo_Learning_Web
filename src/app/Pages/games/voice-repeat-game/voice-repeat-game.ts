@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy, inject, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { TranslateModule, TranslateService } from '@ngx-translate/core';
-import { RouterModule } from '@angular/router';
+
+import { BackToGamesButton } from '../../../Shared/back-to-games-button/back-to-games-button';
 
 // Language configuration with words and images
 const LANGUAGE_CONFIG = {
@@ -44,7 +45,7 @@ type GameStatus = 'idle' | 'listening' | 'checking' | 'match' | 'mismatch' | 'er
 
 @Component({
   selector: 'app-voice-repeat-game',
-  imports: [CommonModule, TranslateModule, RouterModule],
+  imports: [CommonModule, TranslateModule, BackToGamesButton],
   templateUrl: './voice-repeat-game.html',
   styleUrl: './voice-repeat-game.css'
 })

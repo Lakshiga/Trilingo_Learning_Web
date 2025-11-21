@@ -1,0 +1,16 @@
+<div class="video-wrapper bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow relative z-10">
+  <div class="aspect-video">
+    <iframe
+      [src]="safeUrl"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen
+      loading="lazy">
+    </iframe>
+  </div>
+  <div class="p-6 flex flex-col flex-grow">
+    <h3 class="text-xl font-semibold text-gray-800 mb-2">{{ title }}</h3>
+    <p class="text-gray-600 leading-relaxed">{{ description }}</p>
+  </div>
+  <div class="video-overlay absolute top-0 left-0 w-full h-10 pointer-events-none"></div>
+</div>
