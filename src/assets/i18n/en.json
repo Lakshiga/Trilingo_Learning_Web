@@ -9,20 +9,20 @@
   },
   "HOME": {
     "HERO": {
-      "TITLE": "Learn With Trilingo 🐾",
+      "TITLE": "Learn With Q-bit 🐾",
       "SUBTITLE": "Discover a fun way to learn new languages through cute cat characters, colorful games, and smart lessons designed for kids!",
       "DOWNLOAD_APP": "Download App",
       "LEARN_MORE": "Learn More"
     },
     "FEATURES": {
-      "TITLE": "Why Kids Love Trilingo 🐱",
+      "TITLE": "Why Kids Love Q-bit 🐱",
       "PLAY_LEARN": {
         "TITLE": "Play & Learn",
         "DESCRIPTION": "Interactive mini-games make every lesson exciting and easy to remember!"
       },
       "FRIENDLY_MASCOT": {
         "TITLE": "Friendly Mascot",
-        "DESCRIPTION": "Trilingo the Cat guides kids with love and encouragement at every step!"
+        "DESCRIPTION": "Q-bit the Cat guides kids with love and encouragement at every step!"
       },
       "PEACEFUL_LEARNING": {
         "TITLE": "Peaceful Learning",
@@ -30,7 +30,7 @@
       }
     },
     "CTA": {
-      "TITLE": "Download Trilingo App 📱",
+      "TITLE": "Download Q-bit App 📱",
       "DESCRIPTION": "Start learning Tamil, Sinhala, and English with our interactive lessons and fun games. Available for Android and iOS!",
       "PLAY_STORE": "Get it on Play Store",
       "APP_STORE": "Download on App Store"
@@ -39,7 +39,7 @@
   "FEATURES": {
     "AI_TUTOR": {
       "TITLE": "Chat with Our AI Cat Tutor 🐱",
-      "DESCRIPTION": "Meet Trilingo — your friendly AI cat who loves conversations! Practice speaking naturally, get instant feedback, and improve pronunciation while having a fun chat every day."
+      "DESCRIPTION": "Meet Q-bit — your friendly AI cat who loves conversations! Practice speaking naturally, get instant feedback, and improve pronunciation while having a fun chat every day."
     },
     "LEARNING_GAMES": {
       "TITLE": "Learn Through Play 🎮",
@@ -65,7 +65,7 @@
     },
     "GRAMMAR": {
       "TITLE": "Fill-in-the-Blanks & Sentence Builder ✏️",
-      "DESCRIPTION": "Learn grammar naturally! Arrange words or complete sentences with guidance from Trilingo the Cat."
+      "DESCRIPTION": "Learn grammar naturally! Arrange words or complete sentences with guidance from Q-bit the Cat."
     },
     "MEMORY_PUZZLE": {
       "TITLE": "Memory Pair & Word Puzzle 🧩",
@@ -73,7 +73,7 @@
     }
   },
   "FOOTER": {
-    "BRAND_DESCRIPTION": "Learn Tamil, English & Sinhala in a fun, cat-inspired world! Play, explore, and grow with Trilingo 🐾.",
+    "BRAND_DESCRIPTION": "Learn Tamil, English & Sinhala in a fun, cat-inspired world! Play, explore, and grow with Q-bit 🐾.",
     "QUICK_LINKS": "Quick Links",
     "SUPPORT": "Support",
     "GET_THE_APP": "Get the App",
@@ -83,7 +83,7 @@
     "FAQS": "FAQs"
   },
   "PRE_APP": {
-    "TITLE": "Trilingo",
+    "TITLE": "Q-bit",
     "SUBTITLE": "Try our interactive learning games!",
     "GAMES": {
       "WORD_EXPLORER": {
@@ -126,7 +126,7 @@
     },
     "CTA": {
       "TITLE": "Ready for more?",
-      "DESCRIPTION": "Download the full Trilingo app for unlimited learning!",
+      "DESCRIPTION": "Download the full Q-bit app for unlimited learning!",
       "DOWNLOAD": "Download App"
     }
   },
@@ -197,7 +197,7 @@
     "SINHALA_VIDEOS": "Sinhala Learning Videos",
     "ENGLISH_VIDEOS": "English Learning Videos",
     "READY_TO_LEARN": "Ready to Start Learning?",
-    "JOIN_LEARNERS": "Join thousands of learners who are mastering multiple languages with Trilingo.",
+    "JOIN_LEARNERS": "Join thousands of learners who are mastering multiple languages with Q-bit.",
     "START_LEARNING": "Start Learning Now",
     "TAMIL_VIDEO_1": {
       "TITLE": "உருளைக்கிழங்கு செல்லக்குட்டி 🥔🎵",

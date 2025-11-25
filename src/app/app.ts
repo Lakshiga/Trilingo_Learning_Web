@@ -11,5 +11,5 @@ import { Navbar } from './Components/navbar/navbar';
   styleUrls: ['./app.css']
 })
 export class App {
-  protected readonly title = signal('TriLingo_Learning_App_GuestPage');
+  protected readonly title = signal('Q-bit_Learning_App_GuestPage');
 }

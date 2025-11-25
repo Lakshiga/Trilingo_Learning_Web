@@ -1,20 +1,25 @@
-import { Component, ChangeDetectionStrategy, OnInit, computed, inject, signal } from '@angular/core';
+import { Component, ChangeDetectionStrategy, OnInit, signal, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { BackToGamesButton } from '../../../Shared/back-to-games-button/back-to-games-button';
+import { GameResultVideoComponent } from '../../../Shared/game-result-video/game-result-video';
+import { GameStatusMessagesService } from '../../../services/game-status-messages.service';
+import { CompletionService } from '../../../services/completion';
 
 interface ScrambledLetter { letter: string; chosen: boolean; originalIndex: number; }
 
 @Component({
   selector: 'app-fill-in-the-blank-game',
   standalone: true,
-  imports: [CommonModule,NgOptimizedImage,TranslateModule,BackToGamesButton],
+  imports: [CommonModule, NgOptimizedImage, TranslateModule, BackToGamesButton, GameResultVideoComponent],
   templateUrl: './fill-in-the-blanks-game.html',
   styleUrls: ['./fill-in-the-blanks-game.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class FillInTheBlankGame{
+  private readonly statusMessages = inject(GameStatusMessagesService);
+  private readonly completion = inject(CompletionService);
   gameData = [
     {
       word: 'apple',
@@ -57,6 +62,7 @@ export class FillInTheBlankGame{
   }
 
   loadLevel() {
+    this.statusMessages.reset();
     const level = this.currentLevel();
     if (!level) return;
 
@@ -102,6 +108,7 @@ export class FillInTheBlankGame{
       this.state = 'correct';
     } else {
       this.state = 'incorrect';
+      this.statusMessages.setFailure('GAME.FILL_BLANKS.INCORRECT', 'GAME.FILL_BLANKS.RETRY');
     }
   }
 
@@ -115,11 +122,14 @@ export class FillInTheBlankGame{
       this.loadLevel();
     } else {
       this.state = 'finished';
+      this.statusMessages.setSuccess('GAME.FILL_BLANKS.CONGRATULATIONS', 'GAME.FILL_BLANKS.COMPLETED');
+      this.completion.triggerFireworks();
     }
   }
 
   restartGame() {
     this.currentLevelIndex.set(0);
+    this.statusMessages.reset();
     this.loadLevel();
   }
 

@@ -1,78 +1,79 @@
 <app-back-to-games-button></app-back-to-games-button>
 
 
-<main class="min-h-screen flex flex-col items-center justify-start p-6 bg-white font-sans">
-  <div class="relative z-10 w-full max-w-3xl mx-auto bg-white p-6 md:p-8 rounded-2xl shadow-lg border border-gray-200">
+<main class="min-h-screen flex flex-col items-center justify-start p-3 sm:p-4 md:p-6 bg-white font-sans">
+  <div class="relative z-10 w-full max-w-3xl mx-auto bg-white p-4 sm:p-5 md:p-6 lg:p-8 rounded-xl sm:rounded-2xl shadow-lg border border-gray-200">
     <!-- Header -->
-    <header class="text-center mb-8">
-      <h1 class="text-3xl md:text-4xl font-bold text-primary mb-2">{{ 'GAME.WORD_MATCH.TITLE' | translate }}</h1>
-      <p class="text-gray-700 text-base md:text-lg">{{ 'GAME.WORD_MATCH.DESCRIPTION' | translate }}</p>
+    <header class="text-center mb-4 sm:mb-6 md:mb-8">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-2 px-2">{{ 'GAME.WORD_MATCH.TITLE' | translate }}</h1>
+      <p class="text-gray-700 text-sm sm:text-base md:text-lg px-2">{{ 'GAME.WORD_MATCH.DESCRIPTION' | translate }}</p>
     </header>
 
     <!-- Results -->
-    <div *ngIf="gameState() === 'finished'" class="text-center bg-gray-100 border border-gray-300 p-6 rounded-xl shadow mb-8">
+    <div *ngIf="gameState() === 'finished'" class="text-center bg-gray-100 border border-gray-300 p-4 sm:p-5 md:p-6 rounded-xl shadow mb-4 sm:mb-6 md:mb-8">
       <div *ngIf="allCorrect(); else partial">
-        <h2 class="text-4xl mb-2">🎉</h2>
-        <h3 class="text-2xl font-bold text-green-600">{{ 'GAME.WORD_MATCH.CONGRATULATIONS' | translate }}</h3>
-        <p class="text-green-700 text-base mt-2">{{ 'GAME.WORD_MATCH.ALL_CORRECT' | translate }}</p>
+        <h2 class="text-3xl sm:text-4xl mb-2">🎉</h2>
+        <h3 class="text-xl sm:text-2xl font-bold text-green-600">{{ 'GAME.WORD_MATCH.CONGRATULATIONS' | translate }}</h3>
+        <p class="text-green-700 text-sm sm:text-base mt-2">{{ 'GAME.WORD_MATCH.ALL_CORRECT' | translate }}</p>
       </div>
       <ng-template #partial>
-        <h3 class="text-xl font-bold text-cyan-600 mb-2">{{ 'GAME.WORD_MATCH.RESULTS' | translate }}</h3>
-        <div class="flex justify-center gap-6 text-sm md:text-base mt-2">
+        <h3 class="text-lg sm:text-xl font-bold text-cyan-600 mb-2">{{ 'GAME.WORD_MATCH.RESULTS' | translate }}</h3>
+        <div class="flex justify-center gap-3 sm:gap-4 md:gap-6 text-xs sm:text-sm md:text-base mt-2">
           <div class="flex flex-col items-center">
-            <span class="font-bold text-lg text-green-600">{{ correctCount() }}</span>
-            <span class="text-gray-500">{{ 'GAME.WORD_MATCH.CORRECT' | translate }}</span>
+            <span class="font-bold text-base sm:text-lg text-green-600">{{ correctCount() }}</span>
+            <span class="text-gray-500 text-xs sm:text-sm">{{ 'GAME.WORD_MATCH.CORRECT' | translate }}</span>
           </div>
           <div class="flex flex-col items-center">
-            <span class="font-bold text-lg text-red-600">{{ incorrectCount() }}</span>
-            <span class="text-gray-500">{{ 'GAME.WORD_MATCH.INCORRECT' | translate }}</span>
+            <span class="font-bold text-base sm:text-lg text-red-600">{{ incorrectCount() }}</span>
+            <span class="text-gray-500 text-xs sm:text-sm">{{ 'GAME.WORD_MATCH.INCORRECT' | translate }}</span>
           </div>
           <div class="flex flex-col items-center">
-            <span class="font-bold text-lg text-amber-600">{{ score() }}</span>
-            <span class="text-gray-500">{{ 'GAME.WORD_MATCH.SCORE' | translate }}</span>
+            <span class="font-bold text-base sm:text-lg text-amber-600">{{ score() }}</span>
+            <span class="text-gray-500 text-xs sm:text-sm">{{ 'GAME.WORD_MATCH.SCORE' | translate }}</span>
           </div>
         </div>
       </ng-template>
     </div>
 
 <!-- Game area -->
-<div class="grid grid-cols-2 gap-6 md:gap-8">
-  <!-- Words Column (No changes here) -->
-  <div class="flex flex-col gap-4">
+<div class="grid grid-cols-2 gap-3 sm:gap-4 md:gap-6 lg:gap-8">
+  <!-- Words Column -->
+  <div class="flex flex-col gap-2 sm:gap-3 md:gap-4">
     <button
       *ngFor="let word of words()"
       type="button"
       (click)="selectWord(word)"
       [disabled]="isWordPaired(word.id) && gameState() !== 'finished'"
-      class="w-full p-4 text-lg font-semibold rounded-lg shadow-md
+      class="w-full p-2 sm:p-3 md:p-4 text-sm sm:text-base md:text-lg font-semibold rounded-lg shadow-md
              bg-gray-100 border-2 border-gray-300 focus:outline-none focus:ring-2 focus:ring-cyan-400
              transition-all duration-200 flex items-center justify-center"
-      [style.height.px]="100"
+      [style.height.px]="70"
+      [style.min-height.px]="70"
       [ngClass]="{
-        'ring-4 ring-cyan-400': isWordSelected(word.id),
+        'ring-2 sm:ring-4 ring-cyan-400': isWordSelected(word.id),
         'opacity-50 cursor-not-allowed': isWordPaired(word.id) && gameState() !== 'finished'
       }"
     >
-      <span>{{ word.text }}</span>
+      <span class="break-words text-center">{{ word.text }}</span>
     </button>
   </div>
 
-  <!-- Images Column (This part is updated) -->
-  <div class="flex flex-col gap-4">
+  <!-- Images Column -->
+  <div class="flex flex-col gap-2 sm:gap-3 md:gap-4">
     <div *ngFor="let image of images()"
          class="w-full flex items-center justify-center"
-         [style.height.px]="100">
+         [style.height.px]="70"
+         [style.min-height.px]="70">
       
-      <!-- ADD width="100" and height="100" HERE -->
       <img
         (click)="selectImage(image)"
         [ngSrc]="image.url"
         [alt]="image.alt"
-        width="100"
-        height="100"
+        width="70"
+        height="70"
         class="max-w-full max-h-full object-contain rounded-lg transition-all duration-200"
         [ngClass]="{
-          'ring-4 ring-cyan-400': isImageSelected(image.id),
+          'ring-2 sm:ring-4 ring-cyan-400': isImageSelected(image.id),
           'opacity-50 cursor-not-allowed': isImagePaired(image.id) && gameState() !== 'finished',
           'cursor-pointer': gameState() === 'playing' && !isImagePaired(image.id)
         }"
@@ -81,12 +82,12 @@
   </div>
 </div>
     <!-- Footer buttons -->
-    <footer class="mt-8 text-center">
+    <footer class="mt-4 sm:mt-6 md:mt-8 text-center">
       <button
         *ngIf="gameState() === 'playing'; else replay"
         (click)="checkAnswers()"
         [disabled]="!allPairsMade()"
-        class="px-10 py-3 text-base font-bold rounded-lg btn-primary disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
+        class="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-bold rounded-lg btn-primary disabled:bg-gray-300 disabled:text-gray-500 disabled:cursor-not-allowed"
       >
         {{ 'GAME.WORD_MATCH.CHECK_ANSWERS' | translate }}
       </button>
@@ -94,7 +95,7 @@
       <ng-template #replay>
         <button
           (click)="setupGame()"
-          class="px-10 py-3 text-base font-bold rounded-lg btn-highlight"
+          class="w-full sm:w-auto px-6 sm:px-8 md:px-10 py-2 sm:py-2.5 md:py-3 text-sm sm:text-base font-bold rounded-lg btn-highlight"
         >
           {{ 'GAME.WORD_MATCH.PLAY_AGAIN' | translate }}
         </button>
@@ -102,3 +103,5 @@
     </footer>
   </div>
 </main>
+
+<app-game-result-video></app-game-result-video>

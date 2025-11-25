@@ -1,8 +1,12 @@
-import { Component, ChangeDetectionStrategy, signal, computed, effect } from '@angular/core';
+import { Component, ChangeDetectionStrategy, signal, computed, effect, inject } from '@angular/core';
 import { CommonModule, NgOptimizedImage } from '@angular/common';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { BackToGamesButton } from '../../../Shared/back-to-games-button/back-to-games-button';
+import { GameResultVideoComponent } from '../../../Shared/game-result-video/game-result-video';
+import { GameStatusMessagesService } from '../../../services/game-status-messages.service';
+import { GameMediaService } from '../../../services/game-media.service';
+import { CompletionService } from '../../../services/completion';
 
 interface Card {
   id: number;
@@ -35,12 +39,15 @@ const INITIAL_CARDS_DATA: Omit<Card, 'isFlipped' | 'isMatched' | 'isMismatched'>
 @Component({
   selector: 'app-memory-pair-game',
   standalone: true,
-  imports: [CommonModule,NgOptimizedImage,TranslateModule,BackToGamesButton],
+  imports: [CommonModule, NgOptimizedImage, TranslateModule, BackToGamesButton, GameResultVideoComponent],
   templateUrl: './memory-pair-game.html',
   styleUrls: ['./memory-pair-game.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class MemoryPairGame {
+  private readonly statusMessages = inject(GameStatusMessagesService);
+  private readonly mediaService = inject(GameMediaService);
+  private readonly completion = inject(CompletionService);
   cards = signal<Card[]>([]);
   flippedCards = signal<Card[]>([]);
   score = signal(0);
@@ -75,11 +82,20 @@ export class MemoryPairGame {
           this.highScore.set(this.score());
           localStorage.setItem('wordMemoryHighScore', this.score().toString());
         }
+
+        // update shared status + choose media path
+        if (this.allCardsMatched()) {
+          this.statusMessages.setSuccess('GAME.MEMORY_PAIR.YOU_WIN', 'GAME.MEMORY_PAIR.FINAL_SCORE');
+          this.completion.triggerFireworks();
+        } else {
+          this.statusMessages.setFailure('GAME.MEMORY_PAIR.TIMES_UP', 'GAME.MEMORY_PAIR.FINAL_SCORE');
+        }
       }
     });
   }
 
   restartGame(): void {
+    this.statusMessages.reset();
     this.stopTimer();
     this.score.set(0);
     this.combo.set(0);

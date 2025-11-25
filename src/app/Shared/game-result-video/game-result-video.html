@@ -1,0 +1,32 @@
+<section *ngIf="shouldShow()" class="game-result-video-overlay">
+  <div class="game-result-video-panel">
+    <div class="game-result-video-glow"></div>
+
+    <div class="game-result-video-celebration">
+      <span class="confetti-dot dot-one"></span>
+      <span class="confetti-dot dot-two"></span>
+      <span class="confetti-dot dot-three"></span>
+      <span class="confetti-dot dot-four"></span>
+    </div>
+
+    <div class="game-result-video-screen">
+      <video
+        *ngIf="videoSrc()"
+        class="game-result-video-player"
+        [src]="videoSrc()!"
+        autoplay
+        muted
+        playsinline
+        (ended)="handleVideoEnd()"
+      ></video>
+    </div>
+
+    <div class="game-result-video-copy">
+      <p class="game-result-video-pill">{{ headline() | translate }}</p>
+      <h3>{{ description() | translate }}</h3>
+      <p class="game-result-video-mini">{{ 'NAV.START_LEARNING' | translate }}</p>
+    </div>
+  </div>
+</section>
+
+

@@ -2,29 +2,29 @@
 <app-back-to-games-button></app-back-to-games-button>
 
 <!-- Main game container with a clean, light gradient background -->
-<div class="bg-gradient-to-br bg bg-white text-slate-800 w-full p-4 sm:p-6 md:p-8 font-sans">
+<div class="bg-gradient-to-br bg bg-white text-slate-800 w-full p-3 sm:p-4 md:p-6 lg:p-8 font-sans">
   <!-- The Main Game Card -->
-  <div class="relative z-10 w-full max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-200 p-6 md:p-8">
+  <div class="relative z-10 w-full max-w-4xl mx-auto bg-white rounded-xl sm:rounded-2xl shadow-xl border border-gray-200 p-4 sm:p-5 md:p-6 lg:p-8">
 
     @if (currentLevel(); as level) {
 
       @if (gameState() !== 'finished') {
         <!-- Header -->
-        <div class="flex justify-between items-center mb-6">
-          <h1 class="text-2xl font-bold text-primary">{{ 'GAME.FILL_BLANKS.TITLE' | translate }}</h1>
-          <span class="text-sm font-medium bg-sky-100 text-sky-600 px-3 py-1 rounded-full">
+        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-4 sm:mb-5 md:mb-6 gap-2 sm:gap-0">
+          <h1 class="text-xl sm:text-2xl font-bold text-primary">{{ 'GAME.FILL_BLANKS.TITLE' | translate }}</h1>
+          <span class="text-xs sm:text-sm font-medium bg-sky-100 text-sky-600 px-2 sm:px-3 py-1 rounded-full">
             {{ currentLevelIndex() + 1 }} / {{ gameData.length }}
           </span>
         </div>
 
         <!-- Two-Column Layout -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-8">
           
           <!-- Column 1: Free Style Image & Hint Box -->
-          <div class="w-full flex flex-col items-center justify-center gap-4">
+          <div class="w-full flex flex-col items-center justify-center gap-3 sm:gap-4">
             
             <!-- 🖼️ Free Style Image Container -->
-            <div class="w-full h-80 flex items-center justify-center p-4">
+            <div class="w-full h-48 sm:h-64 md:h-80 flex items-center justify-center p-2 sm:p-3 md:p-4">
               <img 
                 [ngSrc]="level.imageUrl" 
                 alt="{{ level.hint }}" 
@@ -35,8 +35,8 @@
             </div>
 
             <!-- 💡 Separate Hint Box -->
-            <div class="w-full bg-sky-50 border-l-4 border-sky-400 p-4 rounded-r-lg">
-              <p class="text-sky-800 text-sm italic">
+            <div class="w-full bg-sky-50 border-l-4 border-sky-400 p-3 sm:p-4 rounded-r-lg">
+              <p class="text-sky-800 text-xs sm:text-sm italic">
                 <span class="font-bold not-italic mr-1">{{ 'GAME.FILL_BLANKS.HINT' | translate }}</span> {{ level.hint }}
               </p>
             </div>
@@ -45,14 +45,14 @@
           <!-- Column 2: Answer and Scrambled Letters -->
           <div class="flex flex-col justify-center">
             <!-- 🔤 Answer Area -->
-            <div class="flex items-center justify-center gap-2 h-20 mb-4">
+            <div class="flex items-center justify-center gap-1 sm:gap-2 mb-2 sm:mb-3 flex-wrap">
               @for (char of level.word.split(''); track $index) {
                 <div 
                   (click)="userAnswer[$index] && removeLetter($index)"
                   [class.cursor-pointer]="userAnswer[$index]"
                   [class.border-green-500]="state === 'correct'"
                   [class.border-red-500]="state === 'incorrect'"
-                  class="w-14 h-16 bg-slate-100 rounded-md flex items-center justify-center text-3xl font-bold uppercase border-2 border-slate-300 transition-all duration-300">
+                  class="w-10 h-12 sm:w-12 sm:h-14 md:w-14 md:h-16 bg-slate-100 rounded-md flex items-center justify-center text-xl sm:text-2xl md:text-3xl font-bold uppercase border-2 border-slate-300 transition-all duration-300">
                   @if (userAnswer[$index]; as answerLetter) {
                     <span class="animate-in fade-in zoom-in-75 duration-300">{{ answerLetter }}</span>
                   }
@@ -61,38 +61,38 @@
             </div>
 
             <!-- 🔠 Scrambled Letters -->
-            <div class="bg-slate-50 p-4 rounded-lg min-h-[140px] flex flex-wrap items-center justify-center gap-2">
+            <div class="bg-slate-50 p-2 sm:p-3 md:p-4 rounded-lg flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
               @for (letter of scrambledLetters; track letter.originalIndex) {
                 <button
                   (click)="selectLetter(letter)"
                   [disabled]="letter.chosen || state !== 'playing'"
                   [class.invisible]="letter.chosen"
-                  class="w-14 h-14 bg-sky-500 text-white hover:bg-sky-600 rounded-md flex items-center justify-center text-2xl font-bold uppercase shadow-md transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
+                  class="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 bg-sky-500 text-white hover:bg-sky-600 rounded-md flex items-center justify-center text-lg sm:text-xl md:text-2xl font-bold uppercase shadow-md transform hover:scale-105 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed">
                   {{ letter.letter }}
                 </button>
               }
               @if (allLettersChosen()) {
-                 <p class="text-slate-500 italic">Click on a filled letter to return it.</p>
+                 <p class="text-slate-500 italic text-xs sm:text-sm text-center w-full mt-2">Click on a filled letter to return it.</p>
               }
             </div>
           </div>
         </div>
 
         <!-- 🎯 Game State Feedback (at the bottom) -->
-        <div class="h-20 mt-6">
+        <div class="mt-3 sm:mt-4 md:mt-5">
           @switch (state) {
             @case ('correct') {
-              <div class="text-center p-4 bg-green-100 rounded-lg animate-in fade-in duration-500">
-                <p class="text-xl font-semibold text-green-700 mb-2">{{ 'GAME.FILL_BLANKS.CORRECT' | translate }}</p>
-                <button (click)="nextLevel()" class="w-full btn-accent font-bold py-3 px-4 rounded-lg transition-colors">
+              <div class="text-center p-3 sm:p-4 bg-green-100 rounded-lg animate-in fade-in duration-500">
+                <p class="text-lg sm:text-xl font-semibold text-green-700 mb-2">{{ 'GAME.FILL_BLANKS.CORRECT' | translate }}</p>
+                <button (click)="nextLevel()" class="w-full btn-accent font-bold py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-lg transition-colors">
                   {{ 'GAME.FILL_BLANKS.NEXT_LEVEL' | translate }}
                 </button>
               </div>
             }
             @case ('incorrect') {
-              <div class="text-center p-4 bg-red-100 rounded-lg animate-in fade-in duration-500">
-                <p class="text-xl font-semibold text-red-700 mb-2">{{ 'GAME.FILL_BLANKS.INCORRECT' | translate }}</p>
-                <button (click)="retryLevel()" class="w-full btn-warning font-bold py-3 px-4 rounded-lg transition-colors">
+              <div class="text-center p-3 sm:p-4 bg-red-100 rounded-lg animate-in fade-in duration-500">
+                <p class="text-lg sm:text-xl font-semibold text-red-700 mb-2">{{ 'GAME.FILL_BLANKS.INCORRECT' | translate }}</p>
+                <button (click)="retryLevel()" class="w-full btn-warning font-bold py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-lg transition-colors">
                   {{ 'GAME.FILL_BLANKS.RETRY' | translate }}
                 </button>
               </div>
@@ -101,11 +101,11 @@
         </div>
       } @else {
         <!-- 🏆 Finished -->
-        <div class="text-center p-8 flex flex-col items-center justify-center animate-in fade-in zoom-in-90 duration-500">
-          <span class="text-7xl mb-4">🏆</span>
-          <h2 class="text-3xl font-bold text-amber-500 mb-2">{{ 'GAME.FILL_BLANKS.CONGRATULATIONS' | translate }}</h2>
-          <p class="text-slate-600 mb-6">{{ 'GAME.FILL_BLANKS.COMPLETED' | translate }}</p>
-          <button (click)="restartGame()" class="w-full max-w-xs mx-auto btn-primary font-bold py-3 px-4 rounded-lg transition-colors">
+        <div class="text-center p-4 sm:p-6 md:p-8 flex flex-col items-center justify-center animate-in fade-in zoom-in-90 duration-500">
+          <span class="text-5xl sm:text-6xl md:text-7xl mb-3 sm:mb-4">🏆</span>
+          <h2 class="text-2xl sm:text-3xl font-bold text-amber-500 mb-2">{{ 'GAME.FILL_BLANKS.CONGRATULATIONS' | translate }}</h2>
+          <p class="text-slate-600 mb-4 sm:mb-6 text-sm sm:text-base">{{ 'GAME.FILL_BLANKS.COMPLETED' | translate }}</p>
+          <button (click)="restartGame()" class="w-full sm:w-auto max-w-xs mx-auto btn-primary font-bold py-2 sm:py-3 px-3 sm:px-4 text-sm sm:text-base rounded-lg transition-colors">
             {{ 'GAME.FILL_BLANKS.PLAY_AGAIN' | translate }}
           </button>
         </div>
@@ -115,3 +115,5 @@
     }
   </div>
 </div>
+
+<app-game-result-video></app-game-result-video>

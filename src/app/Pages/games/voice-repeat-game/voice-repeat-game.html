@@ -1,81 +1,81 @@
 <!-- Voice Repeat Game -->
 <app-back-to-games-button></app-back-to-games-button>
 
-<section class="min-h-screen py-8">
-  <div class="max-w-4xl mx-auto px-4">
+<section class="min-h-screen py-4 sm:py-6 md:py-8">
+  <div class="max-w-4xl mx-auto px-3 sm:px-4">
     
     <!-- Header -->
-    <div class="relative z-10 text-center mb-8">
-      <h1 class="text-4xl font-bold text-gray-800 mb-4">{{ 'GAME.VOICE_REPEAT.TITLE' | translate }}</h1>
-      <p class="text-lg text-gray-600">{{ 'GAME.VOICE_REPEAT.DESCRIPTION' | translate }}</p>
+    <div class="relative z-10 text-center mb-4 sm:mb-6 md:mb-8">
+      <h1 class="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-800 mb-2 sm:mb-3 md:mb-4 px-2">{{ 'GAME.VOICE_REPEAT.TITLE' | translate }}</h1>
+      <p class="text-sm sm:text-base md:text-lg text-gray-600 px-2">{{ 'GAME.VOICE_REPEAT.DESCRIPTION' | translate }}</p>
     </div>
 
     <!-- Game Container -->
-    <div class="relative z-10 bg-white rounded-2xl shadow-xl border-2 border-gray-200 p-8">
+    <div class="relative z-10 bg-white rounded-xl sm:rounded-2xl shadow-xl border-2 border-gray-200 p-4 sm:p-6 md:p-8">
 
       <!-- Target Word Display -->
-      <div class="text-center mb-8">
-        <p class="text-sm uppercase text-gray-500 mb-4 tracking-wider">
+      <div class="text-center mb-4 sm:mb-6 md:mb-8">
+        <p class="text-xs sm:text-sm uppercase text-gray-500 mb-3 sm:mb-4 tracking-wider">
           {{ 'GAME.VOICE_REPEAT.TARGET_WORD' | translate }}
         </p>
         
         <!-- Word Image -->
-        <div class="mb-6">
+        <div class="mb-4 sm:mb-5 md:mb-6">
           <img 
             [src]="targetWord.image" 
             [alt]="targetWord.word"
-            class="w-32 h-32 mx-auto object-contain rounded-lg shadow-lg border-2 border-gray-200"
+            class="w-24 h-24 sm:w-28 sm:h-28 md:w-32 md:h-32 mx-auto object-contain rounded-lg shadow-lg border-2 border-gray-200"
           >
         </div>
 
         <!-- Target Word Text -->
-        <div class="relative z-10 bg-gray-50 p-6 rounded-xl border-2 border-primary shadow-lg">
-          <p class="text-4xl font-black text-gray-800 tracking-wider">{{ targetWord.word }}</p>
+        <div class="relative z-10 bg-gray-50 p-4 sm:p-5 md:p-6 rounded-xl border-2 border-primary shadow-lg">
+          <p class="text-2xl sm:text-3xl md:text-4xl font-black text-gray-800 tracking-wider break-words">{{ targetWord.word }}</p>
         </div>
 
         <!-- Audio Play Button -->
         <button 
           (click)="playAudio()"
-          class="mt-4 bg-accent hover:bg-accent-dark text-white px-6 py-3 rounded-lg font-semibold shadow-lg transition duration-300 transform hover:scale-105"
+          class="mt-3 sm:mt-4 bg-accent hover:bg-accent-dark text-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base rounded-lg font-semibold shadow-lg transition duration-300 transform hover:scale-105"
         >
           🔊 {{ 'GAME.VOICE_REPEAT.LISTEN' | translate }}
         </button>
       </div>
 
       <!-- Status Display -->
-      <div class="mb-8">
-        <div [class]="'p-6 rounded-xl text-center font-bold text-lg text-white transition-all duration-500 ' + getStatusClass()">
+      <div class="mb-4 sm:mb-6 md:mb-8">
+        <div [class]="'p-4 sm:p-5 md:p-6 rounded-xl text-center font-bold text-sm sm:text-base md:text-lg text-white transition-all duration-500 ' + getStatusClass()">
           <div *ngIf="status === 'listening'" class="flex items-center justify-center">
-            <div class="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
-            {{ getStatusText() }}
+            <div class="animate-spin rounded-full h-5 w-5 sm:h-6 sm:w-6 border-b-2 border-white mr-2 sm:mr-3"></div>
+            <span class="text-xs sm:text-sm md:text-base">{{ getStatusText() }}</span>
           </div>
-          <div *ngIf="status !== 'listening'">
+          <div *ngIf="status !== 'listening'" class="text-xs sm:text-sm md:text-base">
             {{ getStatusText() }}
           </div>
         </div>
       </div>
 
       <!-- Transcript Display -->
-      <div *ngIf="transcript" class="mb-8 text-center p-4 bg-gray-50 rounded-lg border">
-        <p class="text-sm uppercase text-gray-500 mb-2">{{ 'GAME.VOICE_REPEAT.YOU_SAID' | translate }}</p>
-        <p class="text-2xl font-semibold text-primary">{{ transcript }}</p>
+      <div *ngIf="transcript" class="mb-4 sm:mb-6 md:mb-8 text-center p-3 sm:p-4 bg-gray-50 rounded-lg border">
+        <p class="text-xs sm:text-sm uppercase text-gray-500 mb-2">{{ 'GAME.VOICE_REPEAT.YOU_SAID' | translate }}</p>
+        <p class="text-lg sm:text-xl md:text-2xl font-semibold text-primary break-words">{{ transcript }}</p>
       </div>
 
       <!-- Control Buttons -->
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <div class="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
         <button 
           (click)="startListening()"
           [disabled]="isButtonDisabled()"
           [class]="isButtonDisabled() 
-            ? 'bg-gray-400 text-gray-600 cursor-not-allowed px-8 py-4 rounded-xl font-bold text-xl transition duration-300' 
-            : 'bg-primary hover:bg-primary-dark active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg transition duration-300 transform'"
+            ? 'bg-gray-400 text-gray-600 cursor-not-allowed px-4 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-xl transition duration-300 w-full sm:w-auto' 
+            : 'bg-primary hover:bg-primary-dark active:scale-95 text-white px-4 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-xl shadow-lg transition duration-300 transform w-full sm:w-auto'"
         >
           {{ status === 'listening' ? ('GAME.VOICE_REPEAT.LISTENING' | translate) : ('GAME.VOICE_REPEAT.START_SPEAKING' | translate) }}
         </button>
         
         <button 
           (click)="nextWord()"
-          class="bg-gray-600 hover:bg-gray-700 active:scale-95 text-white px-8 py-4 rounded-xl font-bold text-xl shadow-lg transition duration-300 transform"
+          class="bg-gray-600 hover:bg-gray-700 active:scale-95 text-white px-4 sm:px-6 md:px-8 py-3 sm:py-3.5 md:py-4 rounded-xl font-bold text-sm sm:text-base md:text-xl shadow-lg transition duration-300 transform w-full sm:w-auto"
         >
           {{ 'GAME.VOICE_REPEAT.NEXT_WORD' | translate }}
         </button>

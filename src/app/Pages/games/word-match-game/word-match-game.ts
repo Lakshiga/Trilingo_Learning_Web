@@ -5,17 +5,22 @@ import { WordMatchService } from './word-match-service';
 
 import { TranslateModule } from '@ngx-translate/core';
 import { BackToGamesButton } from '../../../Shared/back-to-games-button/back-to-games-button';
+import { GameResultVideoComponent } from '../../../Shared/game-result-video/game-result-video';
+import { GameStatusMessagesService } from '../../../services/game-status-messages.service';
+import { CompletionService } from '../../../services/completion';
 
 @Component({
   selector: 'app-word-match-game',
   standalone: true,
-  imports: [CommonModule,NgOptimizedImage,TranslateModule,BackToGamesButton],
+  imports: [CommonModule, NgOptimizedImage, TranslateModule, BackToGamesButton, GameResultVideoComponent],
   templateUrl: './word-match-game.html',
   styleUrls: ['./word-match-game.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WordMatchGame implements OnInit {
   private gameService = inject(WordMatchService);
+  private readonly statusMessages = inject(GameStatusMessagesService);
+  private readonly completion = inject(CompletionService);
   
   words = signal<WordItem[]>([]);
   images = signal<ImageItem[]>([]);
@@ -62,6 +67,7 @@ export class WordMatchGame implements OnInit {
   }
 
   setupGame(): void {
+    this.statusMessages.reset();
     const gameItems = this.gameService.getGameItems()();
     this.words.set(gameItems.map(item => ({ id: item.id, text: item.word })));
     
@@ -117,6 +123,14 @@ export class WordMatchGame implements OnInit {
   checkAnswers(): void {
     if (this.allPairsMade()) {
       this.gameState.set('finished');
+
+      // update shared status for reuse
+      if (this.allCorrect()) {
+        this.statusMessages.setSuccess('GAME.WORD_MATCH.CONGRATULATIONS', 'GAME.WORD_MATCH.ALL_CORRECT');
+        this.completion.triggerFireworks();
+      } else {
+        this.statusMessages.setPartial('GAME.WORD_MATCH.RESULTS', 'GAME.WORD_MATCH.SCORE');
+      }
     }
   }
 

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { TranslateModule } from '@ngx-translate/core';
 import { CommonModule } from '@angular/common';
-import { VideoCardComponent } from '../../videocard/videocard'; 
+import { VideoCardComponent } from '../../Shared/videocard/videocard'; 
 
 @Component({
   selector: 'app-library',

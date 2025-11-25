@@ -1,0 +1,25 @@
+.navbar-container {
+    background-color: var(--primary-color);
+}
+
+.navbar-button {
+    color: var(--primary-color);
+}
+
+.navbar-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.lang-button:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.mobile-drawer {
+    background-color: var(--primary-color);
+}
+
+.mobile-lang-select {
+    color: var(--primary-color);
+}
