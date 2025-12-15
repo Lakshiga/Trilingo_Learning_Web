@@ -6,6 +6,7 @@ import { WordMatchGame } from './Pages/games/word-match-game/word-match-game';
 import { FillInTheBlankGame } from './Pages/games/fill-in-the-blanks-game/fill-in-the-blanks-game';
 import { MemoryPairGame } from './Pages/games/memory-pair-game/memory-pair-game';
 import { VoiceRepeatGame } from './Pages/games/voice-repeat-game/voice-repeat-game';
+import { CreatureCreatorComponent } from './Pages/games/creature-creator/creature-creator.component';
 
 export const routes: Routes = [
     { path: '', component:Home },
@@ -15,5 +16,6 @@ export const routes: Routes = [
     {path:'fill_in_blank' , component:FillInTheBlankGame},
     {path:'memory_pair' , component:MemoryPairGame},
     {path:'voice_repeat' , component:VoiceRepeatGame},
+    {path:'creature-creator' , component:CreatureCreatorComponent},
     {path:'**' , redirectTo:''}
 ];

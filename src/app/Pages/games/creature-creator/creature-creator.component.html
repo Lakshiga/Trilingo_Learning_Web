@@ -1,0 +1,98 @@
+<section class="creator-wrapper">
+  <div class="header">
+    <div>
+      <h1>Creature Creator (Beta)</h1>
+      <p>Create a quick sketch, name it, and let Q-bit magic tell a short story + song.</p>
+    </div>
+    <div class="header-actions">
+      <button class="secondary" (click)="clearCanvas()">Clear</button>
+      <label class="secondary tiny upload-btn">
+        Upload
+        <input type="file" accept="image/*" (change)="onImageUpload($event)" />
+      </label>
+    </div>
+  </div>
+
+  <div class="grid">
+    <div class="panel">
+      <div class="toolbar">
+        <div class="palette">
+          <button
+            *ngFor="let c of colors"
+            [style.background]="c"
+            [class.active]="penColor === c"
+            (click)="setColor(c)"
+            [attr.aria-label]="'Color ' + c"
+          ></button>
+        </div>
+        <div class="name-row">
+          <label class="name-label" for="creature-name">Creature name</label>
+          <input
+            type="text"
+            id="creature-name"
+            [(ngModel)]="prompt"
+            placeholder="Give your creature a name..."
+            class="prompt"
+            aria-label="Creature name"
+          />
+          <button class="secondary tiny" (click)="startListening()" aria-label="Voice fill name">🎙</button>
+        </div>
+      </div>
+
+      <canvas
+        #canvas
+        width="960"
+        height="720"
+        class="canvas"
+        (pointerdown)="startDrawing($event)"
+        (pointermove)="draw($event)"
+        (pointerup)="stopDrawing()"
+        (pointerleave)="stopDrawing()"
+      ></canvas>
+
+      <button class="primary full" [disabled]="isLoading" (click)="generate()">
+        <span *ngIf="isLoading" class="spinner"></span>
+        {{ isLoading ? 'Creating...' : 'Create Magic!' }}
+      </button>
+      <p class="hint">Uses your sketch + prompt to craft a short story and song.</p>
+    </div>
+
+    <div class="panel results">
+      <ng-container *ngIf="result; else placeholder">
+        <div class="images" *ngIf="result.imageDataUrl || result.generatedImage">
+          <div>
+            <h3>Your Drawing</h3>
+            <img [src]="result.imageDataUrl" alt="Your drawing" />
+          </div>
+          <div *ngIf="result.generatedImage">
+            <h3>Gemini's Version</h3>
+            <img [src]="result.generatedImage" alt="Gemini generated creature" />
+          </div>
+        </div>
+
+        <div *ngIf="result.story" class="story">
+          <div class="story-header">
+            <h3>The Story of {{ result.title || 'your creature' }}</h3>
+            <button class="secondary tiny" (click)="speak(result.story, false)">🔊 Read</button>
+          </div>
+          <p>{{ result.story }}</p>
+        </div>
+
+        <div *ngIf="result.song" class="story">
+          <div class="story-header">
+            <h3>Song</h3>
+            <button class="secondary tiny" (click)="speak(result.song, true)">🎵 Sing</button>
+          </div>
+          <pre class="song-text">{{ result.song }}</pre>
+        </div>
+      </ng-container>
+
+      <ng-template #placeholder>
+        <div class="placeholder">
+          <p>Draw something and click “Create Magic!”</p>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</section>
+
