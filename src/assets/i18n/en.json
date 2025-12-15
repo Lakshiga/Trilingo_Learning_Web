@@ -10,9 +10,17 @@
   "HOME": {
     "HERO": {
       "TITLE": "Learn With Q-bit 🐾",
+      "CORE": "Smart, kid-safe language learning — ",
       "SUBTITLE": "Discover a fun way to learn new languages through cute cat characters, colorful games, and smart lessons designed for kids!",
       "DOWNLOAD_APP": "Download App",
       "LEARN_MORE": "Learn More"
+    },
+    "SOCIAL": {
+      "AS_SEEN": "As seen in",
+      "RATINGS": "Parent ratings",
+      "RATINGS_NOTE": "Based on recent community feedback",
+      "DOWNLOADS": "Downloads",
+      "DOWNLOADS_NOTE": "Families getting started with Q-bit"
     },
     "FEATURES": {
       "TITLE": "Why Kids Love Q-bit 🐱",
@@ -34,6 +42,28 @@
       "DESCRIPTION": "Start learning Tamil, Sinhala, and English with our interactive lessons and fun games. Available for Android and iOS!",
       "PLAY_STORE": "Get it on Play Store",
       "APP_STORE": "Download on App Store"
+    },
+    "PRICING": {
+      "TITLE": "Choose your plan",
+      "SUBTITLE": "Flexible options for learners and parents.",
+      "MONTHLY": "Monthly Plan",
+      "YEARLY": "Yearly Plan",
+      "SAVE": "Save ~33% vs monthly",
+      "FEATURES": [
+        "Full access to games and lessons",
+        "Progress tracking and rewards",
+        "Offline download (coming soon)",
+        "Priority support"
+      ],
+      "CTA": "Get started",
+      "REFUND": "7-day refund policy on new purchases",
+      "POPULAR": "Most Popular"
+    },
+    "QR": {
+      "TITLE": "Scan to download",
+      "DESCRIPTION": "Scan this QR code to open the Q-bit download page on your phone.",
+      "NOTE": "Use your camera or any QR scanner app to open the link.",
+      "ALT": "QR code to download Q-bit app"
     }
   },
   "FEATURES": {

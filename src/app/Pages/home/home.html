@@ -7,6 +7,7 @@
       {{ 'HOME.HERO.TITLE' | translate }}
     </h1>
     <p class="text-gray-700 text-lg md:text-xl font-medium leading-relaxed">
+      <span class="font-bold text-primary">{{ 'HOME.HERO.CORE' | translate }}</span>
       {{ 'HOME.HERO.SUBTITLE' | translate }}
     </p>
     <div class="mt-8 flex justify-center md:justify-start space-x-4 [text-shadow:none]">
@@ -28,7 +29,6 @@
   <div class="absolute top-10 left-10 w-10 h-10 bg-primary/20 rounded-full blur-xl animate-pulse"></div>
   <div class="absolute bottom-10 right-20 w-16 h-16 bg-warning/20 rounded-full blur-xl animate-ping"></div>
 </section>
-
 
 
 <!-- 🧠 Features Section -->
@@ -104,6 +104,44 @@
   </div>
 </section>
 
+<!-- 💰 Pricing -->
+<section class="relative z-10 py-20 px-8 md:px-20">
+  <div class="text-center max-w-3xl mx-auto mb-10 [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
+    <h2 class="text-4xl font-extrabold text-primary [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'HOME.PRICING.TITLE' | translate }}</h2>
+    <p class="text-lg text-gray-700 mt-3">{{ 'HOME.PRICING.SUBTITLE' | translate }}</p>
+  </div>
+  <div class="grid gap-6 md:grid-cols-2 max-w-5xl mx-auto">
+    <div class="p-8 bg-white/90 border border-gray-100 rounded-2xl shadow-lg backdrop-blur-sm">
+      <h3 class="text-2xl font-bold text-primary">{{ 'HOME.PRICING.MONTHLY' | translate }}</h3>
+      <p class="text-4xl font-extrabold mt-2 text-primary">Rs 499</p>
+      <ul class="mt-4 space-y-2 text-gray-700">
+        <li *ngFor="let f of ['HOME.PRICING.FEATURES.0','HOME.PRICING.FEATURES.1','HOME.PRICING.FEATURES.2']">
+          {{ f | translate }}
+        </li>
+      </ul>
+      <p class="text-xs text-gray-500 mt-4">{{ 'HOME.PRICING.REFUND' | translate }}</p>
+      <button class="btn-primary mt-6 w-full py-3 font-bold rounded-full shadow-md">
+        {{ 'HOME.PRICING.CTA' | translate }}
+      </button>
+    </div>
+    <div class="p-8 bg-primary/10 border border-primary/30 rounded-2xl shadow-lg backdrop-blur-sm relative overflow-hidden">
+      <span class="absolute top-4 right-4 px-3 py-1 text-xs font-bold rounded-full bg-primary text-white shadow">{{ 'HOME.PRICING.POPULAR' | translate }}</span>
+      <h3 class="text-2xl font-bold text-primary">{{ 'HOME.PRICING.YEARLY' | translate }}</h3>
+      <p class="text-4xl font-extrabold mt-2 text-primary">Rs 3,999</p>
+      <p class="text-sm text-primary/80">{{ 'HOME.PRICING.SAVE' | translate }}</p>
+      <ul class="mt-4 space-y-2 text-gray-700">
+        <li *ngFor="let f of ['HOME.PRICING.FEATURES.0','HOME.PRICING.FEATURES.1','HOME.PRICING.FEATURES.3']">
+          {{ f | translate }}
+        </li>
+      </ul>
+      <p class="text-xs text-gray-600 mt-4">{{ 'HOME.PRICING.REFUND' | translate }}</p>
+      <button class="btn-primary mt-6 w-full py-3 font-bold rounded-full shadow-md">
+        {{ 'HOME.PRICING.CTA' | translate }}
+      </button>
+    </div>
+  </div>
+</section>
+
 <!-- 🌈 Bottom Call-to-Action -->
 <section class="relative z-10 py-20 text-center [text-shadow:0_2px_4px_rgba(0,0,0,0.2)]">
   <h2 class="text-4xl font-extrabold text-primary mb-6 [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'HOME.CTA.TITLE' | translate }}</h2>
@@ -117,5 +155,19 @@
     <button class="btn-warning px-8 py-3 font-bold rounded-full shadow-md transition">
       {{ 'HOME.CTA.APP_STORE' | translate }}
     </button>
+  </div>
+</section>
+
+<!-- 📲 QR Download Section -->
+<section class="relative z-10 py-12 px-8 md:px-20">
+  <div class="max-w-5xl mx-auto grid md:grid-cols-2 items-center justify-items-center gap-8 bg-white/80 border border-gray-100 rounded-2xl shadow-lg backdrop-blur-sm p-8 text-center">
+    <div class="w-44 md:w-52">
+      <img src="assets/images/qr-download.png" alt="{{ 'HOME.QR.ALT' | translate }}" class="w-full rounded-xl border border-gray-200 shadow-md bg-white">
+    </div>
+    <div class="space-y-4 [text-shadow:none]">
+      <h3 class="text-3xl font-extrabold text-primary [text-shadow:0_3px_6px_rgba(0,0,0,0.25)]">{{ 'HOME.QR.TITLE' | translate }}</h3>
+      <p class="text-gray-700 text-lg">{{ 'HOME.QR.DESCRIPTION' | translate }}</p>
+      <p class="text-sm text-gray-500">{{ 'HOME.QR.NOTE' | translate }}</p>
+    </div>
   </div>
 </section>

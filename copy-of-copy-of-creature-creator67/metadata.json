@@ -1,0 +1,7 @@
+{
+  "name": "Copy of Copy of Creature Creator67",
+  "description": "Draw an imaginary creature and watch Gemini bring it to life with a story and a song!",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
